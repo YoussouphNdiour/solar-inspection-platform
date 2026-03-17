@@ -1,0 +1,16 @@
+{
+  "status": "done",
+  "models": ["Site", "PanelModule", "BosComponent"],
+  "endpoints": [
+    "POST /api/v1/sites",
+    "GET /api/v1/sites",
+    "GET /api/v1/sites/{id}",
+    "PUT /api/v1/sites/{id}",
+    "DELETE /api/v1/sites/{id}",
+    "POST /api/v1/sites/{id}/panels",
+    "GET /api/v1/sites/{id}/panels",
+    "POST /api/v1/sites/{id}/bos",
+    "GET /api/v1/sites/{id}/bos",
+    "POST /api/v1/sites/{id}/kml"
+  ]
+}

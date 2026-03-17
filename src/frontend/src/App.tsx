@@ -6,6 +6,7 @@ import { InspectionDetail } from './pages/InspectionDetail'
 import { MalicoundaDemo } from './pages/MalicoundaDemo'
 import { NotFound } from './pages/NotFound'
 import { InspectionList } from './components/InspectionList'
+import { NewSitePage } from './pages/sites/NewSitePage'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
+          <Route path="sites/new" element={<NewSitePage />} />
           <Route path="sites/:siteId" element={<SiteDetail />} />
           <Route path="inspections" element={<div className="p-6"><InspectionList /></div>} />
           <Route path="inspections/:inspectionId" element={<InspectionDetail />} />
