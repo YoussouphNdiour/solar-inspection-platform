@@ -1,66 +1,142 @@
-"""Modèle SQLAlchemy pour les inspections de sites solaires."""
-
+"""Modèle SQLAlchemy pour les examens d'inspection drone."""
+import enum
 import uuid
-from datetime import datetime
-from enum import Enum
-
-from sqlalchemy import DateTime, Float, ForeignKey, String, func
-from sqlalchemy.dialects.postgresql import JSON, UUID
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-
+from datetime import date, datetime
+from sqlalchemy import Column, Date, DateTime, Enum, Float, ForeignKey, Integer, String, JSON, func
+from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import relationship
 from database import Base
 
 
-class InspectionStatus(str, Enum):
-    """Statut d'une inspection."""
+class PlanType(str, enum.Enum):
+    """Type de plan d'inspection."""
 
-    PLANNED = "planned"
-    IN_PROGRESS = "in_progress"
-    COMPLETED = "completed"
-    FAILED = "failed"
+    professional_5gsd = "professional_5gsd"
+    enterprise_3gsd = "enterprise_3gsd"
+
+
+class PaymentStatus(str, enum.Enum):
+    """Statut du paiement de l'inspection."""
+
+    pending = "pending"
+    paid = "paid"
+    failed = "failed"
+
+
+class InspectionStatus(str, enum.Enum):
+    """Statut d'avancement de l'inspection."""
+
+    created = "created"
+    images_uploaded = "images_uploaded"
+    processing = "processing"
+    analysis_done = "analysis_done"
+    report_ready = "report_ready"
+
+
+class ImageType(str, enum.Enum):
+    """Type d'image capturée par le drone."""
+
+    rgb = "rgb"
+    thermal = "thermal"
+
+
+class ImageProcessingStatus(str, enum.Enum):
+    """Statut de traitement d'une image."""
+
+    uploaded = "uploaded"
+    queued = "queued"
+    processed = "processed"
+    error = "error"
+
+
+# Tarification par type de plan
+PRICE_PER_PANEL = {
+    PlanType.professional_5gsd: 0.094,
+    PlanType.enterprise_3gsd: 0.150,
+}
+BANK_COMMISSION_PCT = 5.0
+
+
+def calculate_service_fee(plan_type: PlanType, panel_count: int) -> tuple[float, float, float]:
+    """Calcule frais de service, commission bancaire et total.
+
+    Args:
+        plan_type: Type de plan d'inspection choisi.
+        panel_count: Nombre de panneaux à inspecter.
+
+    Returns:
+        Tuple (service_fee, bank_commission, total) en USD.
+    """
+    price = PRICE_PER_PANEL[plan_type]
+    service_fee = round(panel_count * price, 2)
+    bank_commission = round(service_fee * BANK_COMMISSION_PCT / 100, 2)
+    total = round(service_fee + bank_commission, 2)
+    return service_fee, bank_commission, total
 
 
 class Inspection(Base):
-    """Session d'inspection drone d'un site solaire."""
+    """Examen d'inspection drone d'un site solaire."""
 
     __tablename__ = "inspections"
 
-    id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
-    )
-    site_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("sites.id", ondelete="CASCADE"), nullable=False
-    )
-    drone_id: Mapped[uuid.UUID | None] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("drones.id", ondelete="SET NULL"), nullable=True
-    )
-    status: Mapped[str] = mapped_column(
-        String(20), nullable=False, default=InspectionStatus.PLANNED
-    )
-    started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
-    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
-
-    # Conditions météo IEC 62446-3
-    irradiance_wm2: Mapped[float | None] = mapped_column(Float, nullable=True)
-    wind_speed_ms: Mapped[float | None] = mapped_column(Float, nullable=True)
-    ambient_temp_c: Mapped[float | None] = mapped_column(Float, nullable=True)
-
-    # Résultats pipeline — stockés en JSON (remplace shared/ filesystem sur Render)
-    anomalies_geojson: Mapped[dict | None] = mapped_column(JSON, nullable=True)
-    processing_status: Mapped[dict | None] = mapped_column(JSON, nullable=True)
-    report_data: Mapped[dict | None] = mapped_column(JSON, nullable=True)
-    work_orders: Mapped[dict | None] = mapped_column(JSON, nullable=True)
-
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
-    )
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    site_id = Column(UUID(as_uuid=True), ForeignKey("sites.id", ondelete="CASCADE"), nullable=False)
+    org_id = Column(UUID(as_uuid=True), nullable=True)
+    plan_type = Column(Enum(PlanType), nullable=False, default=PlanType.professional_5gsd)
+    gsd_target_cm = Column(Float, nullable=False, default=5.0)
+    drone_manufacturer = Column(String(100), nullable=True)
+    drone_model = Column(String(100), nullable=True)
+    drone_serial_number = Column(String(100), nullable=True)
+    service_fee_usd = Column(Float, nullable=True)
+    bank_commission_pct = Column(Float, nullable=False, default=BANK_COMMISSION_PCT)
+    total_amount_usd = Column(Float, nullable=True)
+    payment_status = Column(Enum(PaymentStatus), nullable=False, default=PaymentStatus.pending)
+    status = Column(Enum(InspectionStatus), nullable=False, default=InspectionStatus.created)
+    progression = Column(Integer, nullable=False, default=0)  # 0-4
+    flight_date = Column(Date, nullable=True)
+    weather_conditions = Column(JSON, nullable=True)
+    anomalies_geojson = Column(String, nullable=True)
+    processing_status = Column(String(50), nullable=True)
+    report_data = Column(JSON, nullable=True)
+    work_orders = Column(JSON, nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
     # Relations
-    site: Mapped["Site"] = relationship("Site", back_populates="inspections")  # noqa: F821
-    drone: Mapped["Drone | None"] = relationship("Drone", back_populates="inspections")  # noqa: F821
-    images: Mapped[list["Image"]] = relationship(  # noqa: F821
-        "Image", back_populates="inspection", cascade="all, delete-orphan"
+    site = relationship("Site", back_populates="inspections")
+    images = relationship(
+        "InspectionImage", back_populates="inspection", cascade="all, delete-orphan"
     )
 
     def __repr__(self) -> str:
         return f"<Inspection id={self.id} site={self.site_id} status={self.status!r}>"
+
+
+class InspectionImage(Base):
+    """Image drone associée à un examen d'inspection."""
+
+    __tablename__ = "inspection_images"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    inspection_id = Column(
+        UUID(as_uuid=True), ForeignKey("inspections.id", ondelete="CASCADE"), nullable=False
+    )
+    image_type = Column(Enum(ImageType), nullable=False, default=ImageType.rgb)
+    filename = Column(String(255), nullable=False)
+    storage_url = Column(String(1000), nullable=True)
+    file_size_bytes = Column(Integer, nullable=True)
+    gps_latitude = Column(Float, nullable=True)
+    gps_longitude = Column(Float, nullable=True)
+    gps_altitude_m = Column(Float, nullable=True)
+    capture_timestamp = Column(DateTime(timezone=True), nullable=True)
+    exif_data = Column(JSON, nullable=True)
+    processing_status = Column(
+        Enum(ImageProcessingStatus), nullable=False, default=ImageProcessingStatus.uploaded
+    )
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    # Relations
+    inspection = relationship("Inspection", back_populates="images")
+
+    def __repr__(self) -> str:
+        return f"<InspectionImage id={self.id} type={self.image_type!r} file={self.filename!r}>"

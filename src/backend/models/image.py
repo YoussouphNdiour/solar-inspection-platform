@@ -42,8 +42,9 @@ class Image(Base):
         DateTime(timezone=True), server_default=func.now()
     )
 
-    # Relations
-    inspection: Mapped["Inspection"] = relationship("Inspection", back_populates="images")  # noqa: F821
+    # Relations — back_populates retiré : Inspection.images pointe désormais
+    # vers InspectionImage, pas vers Image.
+    inspection: Mapped["Inspection"] = relationship("Inspection", foreign_keys=[inspection_id])  # noqa: F821
 
     def __repr__(self) -> str:
         return f"<Image id={self.id} type={self.image_type!r} path={self.file_path!r}>"

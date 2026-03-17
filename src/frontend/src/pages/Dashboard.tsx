@@ -11,8 +11,8 @@ export const Dashboard: React.FC = () => {
     fetchInspections()
   }, [fetchSites, fetchInspections])
 
-  const inProgressCount = inspections.filter((i) => i.status === 'in_progress').length
-  const completedCount = inspections.filter((i) => i.status === 'completed').length
+  const inProgressCount = inspections.filter((i) => i.status === 'processing').length
+  const completedCount = inspections.filter((i) => i.status === 'report_ready').length
 
   return (
     <div className="h-full flex flex-col">

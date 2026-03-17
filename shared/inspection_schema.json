@@ -1,0 +1,15 @@
+{
+  "status": "done",
+  "models": ["Inspection", "InspectionImage"],
+  "endpoints": [
+    "POST /api/v1/inspections",
+    "GET /api/v1/inspections",
+    "GET /api/v1/inspections/{id}",
+    "PUT /api/v1/inspections/{id}/payment",
+    "POST /api/v1/inspections/{id}/images",
+    "GET /api/v1/inspections/{id}/images",
+    "POST /api/v1/inspections/{id}/start-analysis",
+    "GET /api/v1/inspections/{id}/status",
+    "GET /api/v1/inspections/{id}/progress"
+  ]
+}

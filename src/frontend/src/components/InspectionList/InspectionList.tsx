@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { InspectionCard } from './InspectionCard'
 import { useInspectionStore } from '../../store'
-import type { InspectionStatus } from '../../types'
+import type { InspectionStatus } from '../../types/inspection'
 
 const STATUS_OPTIONS: Array<{ value: InspectionStatus | ''; label: string }> = [
   { value: '', label: 'Tous les statuts' },
-  { value: 'planned', label: 'Planifiées' },
-  { value: 'in_progress', label: 'En cours' },
-  { value: 'completed', label: 'Terminées' },
-  { value: 'failed', label: 'Échouées' },
+  { value: 'created', label: 'Créées' },
+  { value: 'images_uploaded', label: 'Images reçues' },
+  { value: 'processing', label: 'Traitement' },
+  { value: 'analysis_done', label: 'Analyse terminée' },
+  { value: 'report_ready', label: 'Rapport prêt' },
 ]
 
 interface Props {
@@ -44,9 +45,7 @@ export const InspectionList: React.FC<Props> = ({ siteId }) => {
   return (
     <div className="space-y-3">
       <div className="flex justify-between items-center">
-        <h2 className="font-semibold text-gray-800">
-          Inspections ({inspections.length})
-        </h2>
+        <h2 className="font-semibold text-gray-800">Examens ({inspections.length})</h2>
         <select
           className="text-sm border border-gray-300 rounded-md px-2 py-1"
           value={statusFilter}
@@ -61,7 +60,7 @@ export const InspectionList: React.FC<Props> = ({ siteId }) => {
       </div>
 
       {inspections.length === 0 ? (
-        <p className="text-gray-500 text-sm text-center py-8">Aucune inspection trouvée</p>
+        <p className="text-gray-500 text-sm text-center py-8">Aucun examen trouvé</p>
       ) : (
         inspections.map((inspection) => (
           <InspectionCard

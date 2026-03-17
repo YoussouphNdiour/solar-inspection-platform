@@ -1,22 +1,51 @@
-export type InspectionStatus = 'planned' | 'in_progress' | 'completed' | 'failed'
+export type PlanType = 'professional_5gsd' | 'enterprise_3gsd'
+export type PaymentStatus = 'pending' | 'paid' | 'failed'
+export type InspectionStatus = 'created' | 'images_uploaded' | 'processing' | 'analysis_done' | 'report_ready'
 
-export interface Inspection {
-  id: string
+export interface InspectionFormData {
+  plan_type: PlanType
   site_id: string
-  drone_id: string | null
-  status: InspectionStatus
-  started_at: string | null
-  completed_at: string | null
-  irradiance_wm2: number | null
-  wind_speed_ms: number | null
-  ambient_temp_c: number | null
-  created_at: string
+  drone_manufacturer: string
+  drone_model: string
+  drone_serial_number: string
+  flight_date?: string
 }
 
-export interface InspectionCreate {
+export interface InspectionPricing {
+  panel_count: number
+  plan_type: PlanType
+  price_per_panel: number
+  service_fee: number
+  bank_commission: number
+  total: number
+}
+
+export interface InspectionResponse {
+  id: string
   site_id: string
-  drone_id?: string
-  irradiance_wm2?: number
-  wind_speed_ms?: number
-  ambient_temp_c?: number
+  site_name?: string
+  plan_type: PlanType
+  gsd_target_cm: number
+  drone_manufacturer?: string
+  drone_model?: string
+  drone_serial_number?: string
+  service_fee_usd: number
+  bank_commission_pct: number
+  total_amount_usd: number
+  payment_status: PaymentStatus
+  status: InspectionStatus
+  progression: number
+  created_at: string
+  report_data?: unknown
+}
+
+/** Alias de compatibilité */
+export type Inspection = InspectionResponse
+export type InspectionCreate = InspectionFormData
+
+export interface ProgressStep {
+  step: number
+  label: string
+  icon: string
+  state: 'completed' | 'active' | 'locked'
 }

@@ -5,7 +5,9 @@ const NAV_ITEMS = [
   { to: '/', label: 'Tableau de bord', icon: '🏠', end: true },
   { to: '/sites', label: 'Sites', icon: '📍', end: false },
   { to: '/sites/new', label: 'Nouvelle centrale', icon: '⚡', end: false },
-  { to: '/inspections', label: 'Inspections', icon: '🔍', end: false },
+  { to: '/inspections', label: 'Mes examens', icon: '🔍', end: true },
+  { to: '/inspections/new', label: 'Nouvel examen', icon: '🔬', end: false },
+  { to: '/upload', label: 'Upload photos', icon: '📤', end: false },
   { to: '/demo/malicounda', label: 'Démo Malicounda', icon: '☀️', end: false },
 ]
 

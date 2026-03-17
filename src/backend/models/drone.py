@@ -45,10 +45,8 @@ class Drone(Base):
         DateTime(timezone=True), server_default=func.now()
     )
 
-    # Relations
-    inspections: Mapped[list["Inspection"]] = relationship(  # noqa: F821
-        "Inspection", back_populates="drone"
-    )
+    # La relation vers Inspection a été retirée car le nouveau modèle
+    # Inspection ne contient plus de colonne drone_id.
 
     def __repr__(self) -> str:
         return f"<Drone id={self.id} model={self.model!r} sn={self.serial_number!r}>"

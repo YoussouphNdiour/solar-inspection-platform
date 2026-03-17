@@ -13,8 +13,19 @@ from models.site import (
     SiteType,
 )
 from models.drone import Drone, DroneModel
-from models.inspection import Inspection, InspectionStatus
-from models.image import Image, ImageType
+from models.inspection import (
+    Inspection,
+    InspectionImage,
+    InspectionStatus,
+    ImageType,
+    ImageProcessingStatus,
+    PaymentStatus,
+    PlanType,
+    calculate_service_fee,
+    PRICE_PER_PANEL,
+    BANK_COMMISSION_PCT,
+)
+from models.image import Image
 from models.panel import Panel
 
 __all__ = [
@@ -29,12 +40,21 @@ __all__ = [
     "PanelType",
     "BosComponent",
     "BosComponentType",
-    # Autres modèles
+    # Drone
     "Drone",
     "DroneModel",
+    # Inspection (nouveau modèle wizard)
     "Inspection",
+    "InspectionImage",
     "InspectionStatus",
-    "Image",
     "ImageType",
+    "ImageProcessingStatus",
+    "PaymentStatus",
+    "PlanType",
+    "calculate_service_fee",
+    "PRICE_PER_PANEL",
+    "BANK_COMMISSION_PCT",
+    # Modèles hérités (compatibilité)
+    "Image",
     "Panel",
 ]
