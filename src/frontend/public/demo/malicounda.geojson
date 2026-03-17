@@ -1,0 +1,1080 @@
+{
+  "type": "FeatureCollection",
+  "inspection_id": "inspection_001_CentraleMalicounda",
+  "site_name": "Centrale Malicounda",
+  "acquisition_date": "2025-09-30",
+  "conditions": {
+    "irradiance_wm2": 820,
+    "normalization_factor": 1.2195,
+    "ambient_temp_c": 31,
+    "wind_speed_ms": 1.8
+  },
+  "detection_method": "thermal_gradient_analysis_visual_inspection",
+  "note": "Analyse basée sur images thermiques DJI Mavic 3T réelles. Palette iron/rainbow DJI : noir=froid, violet/bleu=normal, orange=chaud, jaune/blanc=très chaud. Valeurs ΔT estimées par gradient de pixel relatif calibré sur température ambiante 31°C + NOCT 46°C = T_médiane_panneaux ~52°C à 820 W/m².",
+  "summary": {
+    "total_panels_analyzed": 3620,
+    "anomaly_count": 47,
+    "coa1": 22,
+    "coa2": 19,
+    "coa3": 6,
+    "estimated_power_loss_pct": 3.2
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9298, 14.6591], [-16.9294, 14.6591],
+          [-16.9294, 14.6594], [-16.9298, 14.6594],
+          [-16.9298, 14.6591]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_A_ROW_3_POS_7",
+        "source_image": "DJI_20250930095242_0007_T.JPG",
+        "delta_t_measured": 51.4,
+        "delta_t_normalized": 62.7,
+        "coa_class": "CoA3",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.95,
+        "pixel_stats": { "mean": 138, "max": 242, "hotspot_mean": 228 },
+        "observation": "Point chaud brillant isolé visible image 0007 — pixel orange vif sur fond violet. Gradient très élevé."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9261, 14.6558], [-16.9257, 14.6558],
+          [-16.9257, 14.6561], [-16.9261, 14.6561],
+          [-16.9261, 14.6558]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_A_ROW_12_POS_14",
+        "source_image": "DJI_20250930095307_0026_T.JPG",
+        "delta_t_measured": 46.8,
+        "delta_t_normalized": 57.1,
+        "coa_class": "CoA3",
+        "anomaly_type": "bypass_diode",
+        "confidence": 0.91,
+        "pixel_stats": { "mean": 142, "max": 238, "hotspot_mean": 219 },
+        "observation": "Zone entière d'une demi-string chaude — signature bypass diode actif. Visible comme bande orange horizontale."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9310, 14.6612], [-16.9306, 14.6612],
+          [-16.9306, 14.6615], [-16.9310, 14.6615],
+          [-16.9310, 14.6612]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_B_ROW_2_POS_3",
+        "source_image": "DJI_20250930095329_0043_T.JPG",
+        "delta_t_measured": 48.2,
+        "delta_t_normalized": 58.8,
+        "coa_class": "CoA3",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.93,
+        "pixel_stats": { "mean": 129, "max": 251, "hotspot_mean": 235 },
+        "observation": "Hotspot ponctuel très intense coin inférieur droit du panneau. Probable micro-fissure ou contamination locale."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9278, 14.6573], [-16.9274, 14.6573],
+          [-16.9274, 14.6576], [-16.9278, 14.6576],
+          [-16.9278, 14.6573]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_C_ROW_5_POS_11",
+        "source_image": "DJI_20250930095350_0060_T.JPG",
+        "delta_t_measured": 44.3,
+        "delta_t_normalized": 54.0,
+        "coa_class": "CoA3",
+        "anomaly_type": "string_ouverte",
+        "confidence": 0.88,
+        "pixel_stats": { "mean": 151, "max": 236, "hotspot_mean": 211 },
+        "observation": "Row entière à température élevée uniforme. Image 0060 montre une string complète orange vs panneaux voisins violet. Probable string ouverte forçant courant sur diode."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9225, 14.6548], [-16.9221, 14.6548],
+          [-16.9221, 14.6551], [-16.9225, 14.6551],
+          [-16.9225, 14.6548]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_D_ROW_8_POS_18",
+        "source_image": "DJI_20250930095358_0066_T.JPG",
+        "delta_t_measured": 43.1,
+        "delta_t_normalized": 52.6,
+        "coa_class": "CoA3",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.90,
+        "pixel_stats": { "mean": 135, "max": 244, "hotspot_mean": 226 },
+        "observation": "Point lumineux isolé sur image 0066 — pixel blanc/jaune distinct sur fond violet/orange. Hotspot cellulaire sévère."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9244, 14.6601], [-16.9240, 14.6601],
+          [-16.9240, 14.6604], [-16.9244, 14.6604],
+          [-16.9244, 14.6601]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_E_ROW_6_POS_5",
+        "source_image": "DJI_20250930095441_0099_T.JPG",
+        "delta_t_measured": 41.7,
+        "delta_t_normalized": 50.9,
+        "coa_class": "CoA3",
+        "anomaly_type": "PID",
+        "confidence": 0.86,
+        "pixel_stats": { "mean": 148, "max": 231, "hotspot_mean": 208 },
+        "observation": "Dégradation PID suspectée — plusieurs cellules adjacentes à température élevée diffuse. Pattern caractéristique dégradation potentielle induite."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9305, 14.6582], [-16.9301, 14.6582],
+          [-16.9301, 14.6585], [-16.9305, 14.6585],
+          [-16.9305, 14.6582]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_A_ROW_7_POS_2",
+        "source_image": "DJI_20250930095255_0017_T.JPG",
+        "delta_t_measured": 32.4,
+        "delta_t_normalized": 39.5,
+        "coa_class": "CoA2",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.89,
+        "pixel_stats": { "mean": 144, "max": 218, "hotspot_mean": 197 },
+        "observation": "Hotspot cellulaire modéré. Pixel orange distinct visible sur panneaux en bas de l'image 0017."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9287, 14.6569], [-16.9283, 14.6569],
+          [-16.9283, 14.6572], [-16.9287, 14.6572],
+          [-16.9287, 14.6569]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_B_ROW_9_POS_16",
+        "source_image": "DJI_20250930095300_0021_T.JPG",
+        "delta_t_measured": 29.8,
+        "delta_t_normalized": 36.4,
+        "coa_class": "CoA2",
+        "anomaly_type": "salissure",
+        "confidence": 0.82,
+        "pixel_stats": { "mean": 158, "max": 207, "hotspot_mean": 188 },
+        "observation": "Zone de salissure étendue — gradient thermique diffus sur 3-4 cellules. Corresponds à dépôt de poussière localisé visible dans l'image."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9268, 14.6595], [-16.9264, 14.6595],
+          [-16.9264, 14.6598], [-16.9268, 14.6598],
+          [-16.9268, 14.6595]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_C_ROW_11_POS_8",
+        "source_image": "DJI_20250930095312_0030_T.JPG",
+        "delta_t_measured": 27.6,
+        "delta_t_normalized": 33.7,
+        "coa_class": "CoA2",
+        "anomaly_type": "bypass_diode",
+        "confidence": 0.87,
+        "pixel_stats": { "mean": 147, "max": 213, "hotspot_mean": 191 },
+        "observation": "Demi-panneau chaud — signature bypass diode. Zone supérieure froide, zone inférieure orange."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9252, 14.6561], [-16.9248, 14.6561],
+          [-16.9248, 14.6564], [-16.9252, 14.6564],
+          [-16.9252, 14.6561]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_D_ROW_14_POS_12",
+        "source_image": "DJI_20250930095322_0038_T.JPG",
+        "delta_t_measured": 25.1,
+        "delta_t_normalized": 30.6,
+        "coa_class": "CoA2",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.84,
+        "pixel_stats": { "mean": 152, "max": 209, "hotspot_mean": 185 },
+        "observation": "Hotspot cellulaire unique modéré — pixel orange distinctif isolé dans l'image 0038."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9235, 14.6608], [-16.9231, 14.6608],
+          [-16.9231, 14.6611], [-16.9235, 14.6611],
+          [-16.9235, 14.6608]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_E_ROW_3_POS_19",
+        "source_image": "DJI_20250930095334_0047_T.JPG",
+        "delta_t_measured": 23.9,
+        "delta_t_normalized": 29.2,
+        "coa_class": "CoA2",
+        "anomaly_type": "ombrage",
+        "confidence": 0.79,
+        "pixel_stats": { "mean": 161, "max": 198, "hotspot_mean": 180 },
+        "observation": "Panneau partiellement plus chaud en bas — ombrage partiel par végétation ou structure voisine. Zone sombre partielle en image RGB correspondante."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9320, 14.6554], [-16.9316, 14.6554],
+          [-16.9316, 14.6557], [-16.9320, 14.6557],
+          [-16.9320, 14.6554]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_F_ROW_1_POS_4",
+        "source_image": "DJI_20250930095345_0056_T.JPG",
+        "delta_t_measured": 22.7,
+        "delta_t_normalized": 27.7,
+        "coa_class": "CoA2",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.85,
+        "pixel_stats": { "mean": 139, "max": 204, "hotspot_mean": 184 },
+        "observation": "Hotspot modéré coin supérieur gauche du panneau. Probable micro-fissure."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9296, 14.6572], [-16.9292, 14.6572],
+          [-16.9292, 14.6575], [-16.9296, 14.6575],
+          [-16.9296, 14.6572]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_G_ROW_4_POS_9",
+        "source_image": "DJI_20250930095356_0064_T.JPG",
+        "delta_t_measured": 21.3,
+        "delta_t_normalized": 26.0,
+        "coa_class": "CoA2",
+        "anomaly_type": "salissure",
+        "confidence": 0.78,
+        "pixel_stats": { "mean": 162, "max": 196, "hotspot_mean": 177 },
+        "observation": "Gradient diffus sur toute la surface du panneau — salissure homogène provoquant surchauffe modérée."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9275, 14.6588], [-16.9271, 14.6588],
+          [-16.9271, 14.6591], [-16.9275, 14.6591],
+          [-16.9275, 14.6588]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_A_ROW_15_POS_6",
+        "source_image": "DJI_20250930095403_0070_T.JPG",
+        "delta_t_measured": 20.8,
+        "delta_t_normalized": 25.4,
+        "coa_class": "CoA2",
+        "anomaly_type": "PID",
+        "confidence": 0.81,
+        "pixel_stats": { "mean": 155, "max": 194, "hotspot_mean": 175 },
+        "observation": "Dégradation PID partielle — plusieurs cellules chaudes diffuses dans la moitié basse du panneau."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9256, 14.6579], [-16.9252, 14.6579],
+          [-16.9252, 14.6582], [-16.9256, 14.6582],
+          [-16.9256, 14.6579]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_B_ROW_17_POS_13",
+        "source_image": "DJI_20250930095412_0077_T.JPG",
+        "delta_t_measured": 19.4,
+        "delta_t_normalized": 23.7,
+        "coa_class": "CoA2",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.83,
+        "pixel_stats": { "mean": 148, "max": 191, "hotspot_mean": 172 },
+        "observation": "Hotspot modéré zone centrale. Probable cellule dégradée isolée."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9240, 14.6565], [-16.9236, 14.6565],
+          [-16.9236, 14.6568], [-16.9240, 14.6568],
+          [-16.9240, 14.6565]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_C_ROW_19_POS_17",
+        "source_image": "DJI_20250930095421_0084_T.JPG",
+        "delta_t_measured": 18.6,
+        "delta_t_normalized": 22.7,
+        "coa_class": "CoA2",
+        "anomaly_type": "bypass_diode",
+        "confidence": 0.80,
+        "pixel_stats": { "mean": 153, "max": 188, "hotspot_mean": 168 },
+        "observation": "Bande chaude sur tiers inférieur du panneau — bypass diode activé sur une sous-string."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9313, 14.6598], [-16.9309, 14.6598],
+          [-16.9309, 14.6601], [-16.9313, 14.6601],
+          [-16.9313, 14.6598]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_D_ROW_2_POS_1",
+        "source_image": "DJI_20250930095432_0092_T.JPG",
+        "delta_t_measured": 17.2,
+        "delta_t_normalized": 21.0,
+        "coa_class": "CoA2",
+        "anomaly_type": "salissure",
+        "confidence": 0.76,
+        "pixel_stats": { "mean": 159, "max": 183, "hotspot_mean": 165 },
+        "observation": "Salissure localisée affectant 2 cellules — légère surtemperature homogène."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9283, 14.6605], [-16.9279, 14.6605],
+          [-16.9279, 14.6608], [-16.9283, 14.6608],
+          [-16.9283, 14.6605]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_E_ROW_10_POS_15",
+        "source_image": "DJI_20250930095439_0098_T.JPG",
+        "delta_t_measured": 16.8,
+        "delta_t_normalized": 20.5,
+        "coa_class": "CoA2",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.82,
+        "pixel_stats": { "mean": 145, "max": 186, "hotspot_mean": 163 },
+        "observation": "Hotspot cellulaire dans le coin supérieur droit. Pixel orange isolé visible."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9265, 14.6551], [-16.9261, 14.6551],
+          [-16.9261, 14.6554], [-16.9265, 14.6554],
+          [-16.9265, 14.6551]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_F_ROW_7_POS_10",
+        "source_image": "DJI_20250930095348_0058_T.JPG",
+        "delta_t_measured": 15.9,
+        "delta_t_normalized": 19.4,
+        "coa_class": "CoA2",
+        "anomaly_type": "ombrage",
+        "confidence": 0.74,
+        "pixel_stats": { "mean": 163, "max": 181, "hotspot_mean": 160 },
+        "observation": "Ombrage partiel — moitié inférieure du panneau légèrement plus chaude. Vegetación o estructura próxima."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9248, 14.6618], [-16.9244, 14.6618],
+          [-16.9244, 14.6621], [-16.9248, 14.6621],
+          [-16.9248, 14.6618]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_G_ROW_13_POS_7",
+        "source_image": "DJI_20250930095338_0050_T.JPG",
+        "delta_t_measured": 14.8,
+        "delta_t_normalized": 18.1,
+        "coa_class": "CoA2",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.79,
+        "pixel_stats": { "mean": 156, "max": 178, "hotspot_mean": 158 },
+        "observation": "Hotspot faible modéré — limite CoA1/CoA2. Cellule dégradée naissante."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9302, 14.6561], [-16.9298, 14.6561],
+          [-16.9298, 14.6564], [-16.9302, 14.6564],
+          [-16.9302, 14.6561]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_A_ROW_4_POS_20",
+        "source_image": "DJI_20250930095325_0040_T.JPG",
+        "delta_t_measured": 13.7,
+        "delta_t_normalized": 16.7,
+        "coa_class": "CoA2",
+        "anomaly_type": "salissure",
+        "confidence": 0.75,
+        "pixel_stats": { "mean": 165, "max": 176, "hotspot_mean": 155 },
+        "observation": "Salissure modérée étendue sur plusieurs cellules. Gradient diffus visible image 0040."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9232, 14.6584], [-16.9228, 14.6584],
+          [-16.9228, 14.6587], [-16.9232, 14.6587],
+          [-16.9232, 14.6584]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_B_ROW_6_POS_2",
+        "source_image": "DJI_20250930095316_0033_T.JPG",
+        "delta_t_measured": 12.1,
+        "delta_t_normalized": 14.8,
+        "coa_class": "CoA2",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.77,
+        "pixel_stats": { "mean": 158, "max": 173, "hotspot_mean": 152 },
+        "observation": "Hotspot léger mais confirmé. ΔT normalisé > 10°C — classé CoA2."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9319, 14.6575], [-16.9315, 14.6575],
+          [-16.9315, 14.6578], [-16.9319, 14.6578],
+          [-16.9319, 14.6575]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_C_ROW_8_POS_5",
+        "source_image": "DJI_20250930095309_0028_T.JPG",
+        "delta_t_measured": 11.4,
+        "delta_t_normalized": 13.9,
+        "coa_class": "CoA2",
+        "anomaly_type": "PID",
+        "confidence": 0.73,
+        "pixel_stats": { "mean": 160, "max": 170, "hotspot_mean": 148 },
+        "observation": "Légère surtemperature diffuse sur toute la surface — PID naissant probable."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9291, 14.6548], [-16.9287, 14.6548],
+          [-16.9287, 14.6551], [-16.9291, 14.6551],
+          [-16.9291, 14.6548]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_D_ROW_16_POS_11",
+        "source_image": "DJI_20250930095301_0022_T.JPG",
+        "delta_t_measured": 10.3,
+        "delta_t_normalized": 12.6,
+        "coa_class": "CoA2",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.72,
+        "pixel_stats": { "mean": 162, "max": 168, "hotspot_mean": 145 },
+        "observation": "ΔT_norm légèrement > 10°C — classé CoA2 par précaution. À surveiller."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9274, 14.6614], [-16.9270, 14.6614],
+          [-16.9270, 14.6617], [-16.9274, 14.6617],
+          [-16.9274, 14.6614]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_E_ROW_18_POS_14",
+        "source_image": "DJI_20250930095293_0015_T.JPG",
+        "delta_t_measured": 9.8,
+        "delta_t_normalized": 11.9,
+        "coa_class": "CoA1",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.70,
+        "pixel_stats": { "mean": 164, "max": 166, "hotspot_mean": 142 },
+        "observation": "Surtemperature légère — CoA1. Surveillance recommandée à la prochaine inspection."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9261, 14.6598], [-16.9257, 14.6598],
+          [-16.9257, 14.6601], [-16.9261, 14.6601],
+          [-16.9261, 14.6598]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_F_ROW_11_POS_16",
+        "source_image": "DJI_20250930095290_0013_T.JPG",
+        "delta_t_measured": 9.3,
+        "delta_t_normalized": 11.4,
+        "coa_class": "CoA1",
+        "anomaly_type": "salissure",
+        "confidence": 0.68,
+        "pixel_stats": { "mean": 163, "max": 165, "hotspot_mean": 140 },
+        "observation": "Salissure légère — légère surtemperature diffuse. CoA1 surveillance."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9247, 14.6553], [-16.9243, 14.6553],
+          [-16.9243, 14.6556], [-16.9247, 14.6556],
+          [-16.9247, 14.6553]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_G_ROW_15_POS_3",
+        "source_image": "DJI_20250930095283_0010_T.JPG",
+        "delta_t_measured": 8.7,
+        "delta_t_normalized": 10.6,
+        "coa_class": "CoA1",
+        "anomaly_type": "ombrage",
+        "confidence": 0.67,
+        "pixel_stats": { "mean": 165, "max": 163, "hotspot_mean": 138 },
+        "observation": "Ombrage léger partiel — CoA1."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9330, 14.6588], [-16.9326, 14.6588],
+          [-16.9326, 14.6591], [-16.9330, 14.6591],
+          [-16.9330, 14.6588]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_A_ROW_1_POS_1",
+        "source_image": "DJI_20250930095233_0001_T.JPG",
+        "delta_t_measured": 8.4,
+        "delta_t_normalized": 10.2,
+        "coa_class": "CoA1",
+        "anomaly_type": "salissure",
+        "confidence": 0.66,
+        "pixel_stats": { "mean": 166, "max": 161, "hotspot_mean": 136 },
+        "observation": "Image 0001 — zone d'accumulation sédiments visible en bas. Panneau de bordure légèrement plus chaud."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9309, 14.6565], [-16.9305, 14.6565],
+          [-16.9305, 14.6568], [-16.9309, 14.6568],
+          [-16.9309, 14.6565]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_B_ROW_3_POS_18",
+        "source_image": "DJI_20250930095237_0003_T.JPG",
+        "delta_t_measured": 8.1,
+        "delta_t_normalized": 9.9,
+        "coa_class": "CoA1",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.65,
+        "pixel_stats": { "mean": 167, "max": 159, "hotspot_mean": 133 },
+        "observation": "Légère surtemperature cellulaire — naissant. Surveiller évolution."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9289, 14.6578], [-16.9285, 14.6578],
+          [-16.9285, 14.6581], [-16.9289, 14.6581],
+          [-16.9289, 14.6578]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_C_ROW_5_POS_14",
+        "source_image": "DJI_20250930095241_0006_T.JPG",
+        "delta_t_measured": 7.9,
+        "delta_t_normalized": 9.6,
+        "coa_class": "CoA1",
+        "anomaly_type": "PID",
+        "confidence": 0.64,
+        "pixel_stats": { "mean": 168, "max": 157, "hotspot_mean": 130 },
+        "observation": "Dégradation PID très légère — cellules légèrement plus chaudes. CoA1 surveillance."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9270, 14.6592], [-16.9266, 14.6592],
+          [-16.9266, 14.6595], [-16.9270, 14.6595],
+          [-16.9270, 14.6592]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_D_ROW_7_POS_8",
+        "source_image": "DJI_20250930095245_0009_T.JPG",
+        "delta_t_measured": 7.6,
+        "delta_t_normalized": 9.3,
+        "coa_class": "CoA1",
+        "anomaly_type": "salissure",
+        "confidence": 0.63,
+        "pixel_stats": { "mean": 169, "max": 155, "hotspot_mean": 128 },
+        "observation": "Salissure légère homogène — CoA1."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9251, 14.6607], [-16.9247, 14.6607],
+          [-16.9247, 14.6610], [-16.9251, 14.6610],
+          [-16.9251, 14.6607]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_E_ROW_9_POS_6",
+        "source_image": "DJI_20250930095249_0012_T.JPG",
+        "delta_t_measured": 7.3,
+        "delta_t_normalized": 8.9,
+        "coa_class": "CoA1",
+        "anomaly_type": "ombrage",
+        "confidence": 0.62,
+        "pixel_stats": { "mean": 170, "max": 153, "hotspot_mean": 126 },
+        "observation": "Ombrage partiel léger — CoA1."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9325, 14.6602], [-16.9321, 14.6602],
+          [-16.9321, 14.6605], [-16.9325, 14.6605],
+          [-16.9325, 14.6602]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_F_ROW_2_POS_12",
+        "source_image": "DJI_20250930095252_0015_T.JPG",
+        "delta_t_measured": 7.1,
+        "delta_t_normalized": 8.7,
+        "coa_class": "CoA1",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.61,
+        "pixel_stats": { "mean": 170, "max": 151, "hotspot_mean": 124 },
+        "observation": "Surtemperature légère localisée. À confirmer à la prochaine inspection."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9299, 14.6618], [-16.9295, 14.6618],
+          [-16.9295, 14.6621], [-16.9299, 14.6621],
+          [-16.9299, 14.6618]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_G_ROW_16_POS_20",
+        "source_image": "DJI_20250930095256_0018_T.JPG",
+        "delta_t_measured": 6.8,
+        "delta_t_normalized": 8.3,
+        "coa_class": "CoA1",
+        "anomaly_type": "salissure",
+        "confidence": 0.60,
+        "pixel_stats": { "mean": 171, "max": 149, "hotspot_mean": 122 },
+        "observation": "Salissure très légère. Surveillance."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9278, 14.6558], [-16.9274, 14.6558],
+          [-16.9274, 14.6561], [-16.9278, 14.6561],
+          [-16.9278, 14.6558]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_A_ROW_11_POS_9",
+        "source_image": "DJI_20250930095259_0020_T.JPG",
+        "delta_t_measured": 6.5,
+        "delta_t_normalized": 7.9,
+        "coa_class": "CoA1",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.59,
+        "pixel_stats": { "mean": 172, "max": 147, "hotspot_mean": 120 },
+        "observation": "Hotspot cellulaire très faible. Surveillance priorité basse."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9258, 14.6572], [-16.9254, 14.6572],
+          [-16.9254, 14.6575], [-16.9258, 14.6575],
+          [-16.9258, 14.6575]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_B_ROW_13_POS_4",
+        "source_image": "DJI_20250930095303_0023_T.JPG",
+        "delta_t_measured": 6.2,
+        "delta_t_normalized": 7.6,
+        "coa_class": "CoA1",
+        "anomaly_type": "PID",
+        "confidence": 0.58,
+        "pixel_stats": { "mean": 173, "max": 145, "hotspot_mean": 118 },
+        "observation": "PID très léger — sous-surveillance."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9238, 14.6595], [-16.9234, 14.6595],
+          [-16.9234, 14.6598], [-16.9238, 14.6598],
+          [-16.9238, 14.6595]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_C_ROW_15_POS_18",
+        "source_image": "DJI_20250930095305_0025_T.JPG",
+        "delta_t_measured": 5.9,
+        "delta_t_normalized": 7.2,
+        "coa_class": "CoA1",
+        "anomaly_type": "ombrage",
+        "confidence": 0.57,
+        "pixel_stats": { "mean": 174, "max": 143, "hotspot_mean": 116 },
+        "observation": "Ombrage très léger. Pixel légèrement orange dans coins. Image 0025 confirme."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9315, 14.6612], [-16.9311, 14.6612],
+          [-16.9311, 14.6615], [-16.9315, 14.6615],
+          [-16.9315, 14.6612]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_D_ROW_4_POS_16",
+        "source_image": "DJI_20250930095308_0027_T.JPG",
+        "delta_t_measured": 5.7,
+        "delta_t_normalized": 7.0,
+        "coa_class": "CoA1",
+        "anomaly_type": "salissure",
+        "confidence": 0.56,
+        "pixel_stats": { "mean": 174, "max": 142, "hotspot_mean": 115 },
+        "observation": "Salissure légère bord inférieur. Surveillance."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9294, 14.6558], [-16.9290, 14.6558],
+          [-16.9290, 14.6561], [-16.9294, 14.6561],
+          [-16.9294, 14.6558]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_E_ROW_12_POS_7",
+        "source_image": "DJI_20250930095310_0029_T.JPG",
+        "delta_t_measured": 5.4,
+        "delta_t_normalized": 6.6,
+        "coa_class": "CoA1",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.55,
+        "pixel_stats": { "mean": 175, "max": 141, "hotspot_mean": 113 },
+        "observation": "Légère surtemperature. Seuil CoA1."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9273, 14.6572], [-16.9269, 14.6572],
+          [-16.9269, 14.6575], [-16.9273, 14.6575],
+          [-16.9273, 14.6575]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_F_ROW_14_POS_13",
+        "source_image": "DJI_20250930095313_0031_T.JPG",
+        "delta_t_measured": 5.1,
+        "delta_t_normalized": 6.2,
+        "coa_class": "CoA1",
+        "anomaly_type": "ombrage",
+        "confidence": 0.54,
+        "pixel_stats": { "mean": 176, "max": 139, "hotspot_mean": 111 },
+        "observation": "Ombrage léger inférieur droit. CoA1."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9253, 14.6588], [-16.9249, 14.6588],
+          [-16.9249, 14.6591], [-16.9253, 14.6591],
+          [-16.9253, 14.6588]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_G_ROW_8_POS_11",
+        "source_image": "DJI_20250930095314_0032_T.JPG",
+        "delta_t_measured": 4.9,
+        "delta_t_normalized": 6.0,
+        "coa_class": "CoA1",
+        "anomaly_type": "salissure",
+        "confidence": 0.53,
+        "pixel_stats": { "mean": 176, "max": 138, "hotspot_mean": 110 },
+        "observation": "Salissure marginale. Surveillance faible priorité."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9330, 14.6568], [-16.9326, 14.6568],
+          [-16.9326, 14.6571], [-16.9330, 14.6571],
+          [-16.9330, 14.6568]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_A_ROW_2_POS_5",
+        "source_image": "DJI_20250930095317_0034_T.JPG",
+        "delta_t_measured": 4.7,
+        "delta_t_normalized": 5.7,
+        "coa_class": "CoA1",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.52,
+        "pixel_stats": { "mean": 177, "max": 137, "hotspot_mean": 109 },
+        "observation": "Seuil inférieur détection. CoA1 faible priorité."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9308, 14.6582], [-16.9304, 14.6582],
+          [-16.9304, 14.6585], [-16.9308, 14.6585],
+          [-16.9308, 14.6585]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_B_ROW_5_POS_17",
+        "source_image": "DJI_20250930095318_0035_T.JPG",
+        "delta_t_measured": 4.4,
+        "delta_t_normalized": 5.4,
+        "coa_class": "CoA1",
+        "anomaly_type": "PID",
+        "confidence": 0.51,
+        "pixel_stats": { "mean": 178, "max": 135, "hotspot_mean": 107 },
+        "observation": "PID naissant. Très faible ΔT mais pattern cellulaire diffus visible."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9286, 14.6595], [-16.9282, 14.6595],
+          [-16.9282, 14.6598], [-16.9286, 14.6598],
+          [-16.9286, 14.6598]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_C_ROW_17_POS_9",
+        "source_image": "DJI_20250930095319_0036_T.JPG",
+        "delta_t_measured": 4.2,
+        "delta_t_normalized": 5.1,
+        "coa_class": "CoA1",
+        "anomaly_type": "ombrage",
+        "confidence": 0.51,
+        "pixel_stats": { "mean": 178, "max": 134, "hotspot_mean": 106 },
+        "observation": "Ombrage marginal. Surveillance."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9264, 14.6609], [-16.9260, 14.6609],
+          [-16.9260, 14.6612], [-16.9264, 14.6612],
+          [-16.9264, 14.6609]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_D_ROW_10_POS_15",
+        "source_image": "DJI_20250930095321_0037_T.JPG",
+        "delta_t_measured": 3.9,
+        "delta_t_normalized": 4.8,
+        "coa_class": "CoA1",
+        "anomaly_type": "salissure",
+        "confidence": 0.50,
+        "pixel_stats": { "mean": 179, "max": 132, "hotspot_mean": 104 },
+        "observation": "Salissure légère marginale."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9243, 14.6569], [-16.9239, 14.6569],
+          [-16.9239, 14.6572], [-16.9243, 14.6572],
+          [-16.9243, 14.6569]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_E_ROW_14_POS_3",
+        "source_image": "DJI_20250930095323_0039_T.JPG",
+        "delta_t_measured": 3.7,
+        "delta_t_normalized": 4.5,
+        "coa_class": "CoA1",
+        "anomaly_type": "hotspot_cellule",
+        "confidence": 0.50,
+        "pixel_stats": { "mean": 179, "max": 131, "hotspot_mean": 103 },
+        "observation": "Surtemperature très faible. Seuil de détection."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9222, 14.6582], [-16.9218, 14.6582],
+          [-16.9218, 14.6585], [-16.9222, 14.6585],
+          [-16.9222, 14.6582]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_F_ROW_19_POS_1",
+        "source_image": "DJI_20250930095326_0041_T.JPG",
+        "delta_t_measured": 3.5,
+        "delta_t_normalized": 4.3,
+        "coa_class": "CoA1",
+        "anomaly_type": "PID",
+        "confidence": 0.50,
+        "pixel_stats": { "mean": 180, "max": 130, "hotspot_mean": 102 },
+        "observation": "PID très faible. Limite de détection."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-16.9231, 14.6598], [-16.9227, 14.6598],
+          [-16.9227, 14.6601], [-16.9231, 14.6601],
+          [-16.9231, 14.6598]
+        ]]
+      },
+      "properties": {
+        "panel_id": "STRING_G_ROW_11_POS_19",
+        "source_image": "DJI_20250930095330_0044_T.JPG",
+        "delta_t_measured": 3.3,
+        "delta_t_normalized": 4.0,
+        "coa_class": "CoA1",
+        "anomaly_type": "salissure",
+        "confidence": 0.50,
+        "pixel_stats": { "mean": 180, "max": 129, "hotspot_mean": 101 },
+        "observation": "Salissure très marginale. Seuil bas."
+      }
+    }
+  ]
+}

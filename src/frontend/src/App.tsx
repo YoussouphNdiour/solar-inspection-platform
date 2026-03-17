@@ -3,6 +3,7 @@ import { Layout } from './components/Layout'
 import { Dashboard } from './pages/Dashboard'
 import { SiteDetail } from './pages/SiteDetail'
 import { InspectionDetail } from './pages/InspectionDetail'
+import { MalicoundaDemo } from './pages/MalicoundaDemo'
 import { NotFound } from './pages/NotFound'
 import { InspectionList } from './components/InspectionList'
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="sites/:siteId" element={<SiteDetail />} />
           <Route path="inspections" element={<div className="p-6"><InspectionList /></div>} />
           <Route path="inspections/:inspectionId" element={<InspectionDetail />} />
+          <Route path="demo/malicounda" element={<MalicoundaDemo />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
