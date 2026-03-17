@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from api.v1.router import api_router
 from config import settings
-from database import engine
+from database import Base, engine
 
 logger = logging.getLogger(__name__)
 
@@ -22,8 +22,14 @@ async def lifespan(app: FastAPI) -> AsyncGenerator:
     Le schéma est géré par Alembic (preDeployCommand dans render.yaml).
     Le lifespan ne tente aucune connexion DB au démarrage.
     """
-    db_url = os.environ.get("DATABASE_URL", "NON DÉFINI — utilise défaut localhost!")
-    logger.info("DATABASE_URL au démarrage : %s", db_url[:40] + "..." if len(db_url) > 40 else db_url)
+    db_url = os.environ.get("DATABASE_URL", "NON DÉFINI")
+    logger.info("DATABASE_URL: %s", db_url[:50] + "..." if len(db_url) > 50 else db_url)
+    try:
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
+        logger.info("Tables créées / vérifiées avec succès.")
+    except Exception as exc:
+        logger.warning("create_all ignoré (DB non disponible): %s", exc)
     yield
     await engine.dispose()
 

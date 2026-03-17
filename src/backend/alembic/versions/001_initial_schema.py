@@ -16,9 +16,11 @@ depends_on = None
 
 
 def upgrade() -> None:
-    # Activer PostGIS (nécessaire sur Render PostgreSQL 13+)
-    op.execute("CREATE EXTENSION IF NOT EXISTS postgis")
-    op.execute("CREATE EXTENSION IF NOT EXISTS postgis_topology")
+    # PostGIS — ignoré si non disponible (Render free tier)
+    try:
+        op.execute("CREATE EXTENSION IF NOT EXISTS postgis")
+    except Exception:
+        pass
 
     # Table sites
     op.create_table(

@@ -9,7 +9,6 @@ services:
     region: frankfurt
     plan: starter
     healthCheckPath: /health
-    preDeployCommand: "alembic upgrade head"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
