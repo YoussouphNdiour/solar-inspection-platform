@@ -13,25 +13,14 @@ from database import Base, engine
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator:
-    """Gestion du cycle de vie de l'application."""
-    # Démarrage : appliquer les migrations Alembic (production)
-    # ou create_all en dev si Alembic non disponible
-    import os
-    if os.environ.get("RUN_MIGRATIONS", "true").lower() == "true":
-        try:
-            from alembic.config import Config
-            from alembic import command
-            alembic_cfg = Config("alembic.ini")
-            command.upgrade(alembic_cfg, "head")
-        except Exception:
-            # Fallback dev local : create_all
-            async with engine.begin() as conn:
-                await conn.run_sync(Base.metadata.create_all)
-    else:
-        async with engine.begin() as conn:
-            await conn.run_sync(Base.metadata.create_all)
+    """Gestion du cycle de vie de l'application.
+
+    Utilise create_all au démarrage (simple et compatible async).
+    Les migrations Alembic sont lancées via le preDeployCommand dans render.yaml.
+    """
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
     yield
-    # Arrêt : fermeture de la connexion
     await engine.dispose()
 
 

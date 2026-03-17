@@ -20,12 +20,25 @@ class Settings(BaseSettings):
     # Sur Render, DATABASE_URL commence par "postgres://" — asyncpg veut "postgresql+asyncpg://"
     @property
     def async_database_url(self) -> str:
-        """Normalise l'URL de base de données pour asyncpg."""
+        """Normalise l'URL de base de données pour asyncpg.
+
+        Render injecte : postgres://user:pass@host:5432/db
+        asyncpg attend : postgresql+asyncpg://user:pass@host:5432/db
+        """
         url = self.database_url
         if url.startswith("postgres://"):
             url = url.replace("postgres://", "postgresql+asyncpg://", 1)
         elif url.startswith("postgresql://") and "+asyncpg" not in url:
             url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+        return url
+
+    @property
+    def sync_database_url(self) -> str:
+        """URL synchrone pour Alembic (psycopg2)."""
+        url = self.database_url
+        if url.startswith("postgres://"):
+            url = url.replace("postgres://", "postgresql://", 1)
+        url = url.replace("+asyncpg", "")
         return url
 
     @property

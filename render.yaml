@@ -5,10 +5,12 @@ services:
   # ── Backend FastAPI ──────────────────────────────────────────────────────────
   - type: web
     name: solar-inspection-platform
-    runtime: docker          # Utilise le Dockerfile à la racine du repo
+    runtime: docker
     region: frankfurt
     plan: starter
     healthCheckPath: /health
+    # Migrations lancées AVANT le démarrage (évite asyncio.run dans lifespan)
+    preDeployCommand: "cd /app && alembic upgrade head"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -23,8 +25,6 @@ services:
         value: "https://solar-inspection-platform.onrender.com"
       - key: DEBUG
         value: "false"
-      - key: RUN_MIGRATIONS
-        value: "true"
 
   # ── Frontend React (site statique CDN) ──────────────────────────────────────
   - type: web
