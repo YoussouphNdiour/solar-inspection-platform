@@ -1,5 +1,7 @@
 """Point d'entrée principal de l'application FastAPI."""
 
+import logging
+import os
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
@@ -8,18 +10,20 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from api.v1.router import api_router
 from config import settings
-from database import Base, engine
+from database import engine
+
+logger = logging.getLogger(__name__)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator:
     """Gestion du cycle de vie de l'application.
 
-    Utilise create_all au démarrage (simple et compatible async).
-    Les migrations Alembic sont lancées via le preDeployCommand dans render.yaml.
+    Le schéma est géré par Alembic (preDeployCommand dans render.yaml).
+    Le lifespan ne tente aucune connexion DB au démarrage.
     """
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+    db_url = os.environ.get("DATABASE_URL", "NON DÉFINI — utilise défaut localhost!")
+    logger.info("DATABASE_URL au démarrage : %s", db_url[:40] + "..." if len(db_url) > 40 else db_url)
     yield
     await engine.dispose()
 
