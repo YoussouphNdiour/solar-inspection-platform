@@ -1,0 +1,62 @@
+## render.yaml — Blueprint Solar Inspection Platform
+## https://render.com/docs/blueprint-spec
+
+services:
+  # ── Backend FastAPI ──────────────────────────────────────────────────────────
+  - type: web
+    name: solar-backend
+    runtime: python
+    region: frankfurt  # le plus proche de l'Afrique de l'Ouest
+    plan: starter
+    rootDir: src/backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: solar-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          name: solar-redis
+          type: redis
+          property: connectionString
+      - key: FRONTEND_URL
+        fromService:
+          name: solar-frontend
+          type: web
+          property: deployedURL
+      - key: DEBUG
+        value: "false"
+      - key: PYTHON_VERSION
+        value: "3.12.0"
+
+  # ── Frontend React (site statique CDN) ──────────────────────────────────────
+  - type: web
+    name: solar-frontend
+    runtime: static
+    rootDir: src/frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    pullRequestPreviewsEnabled: true
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: solar-backend
+          type: web
+          property: deployedURL
+        suffix: /api/v1
+
+  # ── Redis / Key-Value ────────────────────────────────────────────────────────
+  - type: redis
+    name: solar-redis
+    plan: starter
+    maxmemoryPolicy: allkeys-lru
+
+# ── PostgreSQL + PostGIS ─────────────────────────────────────────────────────
+databases:
+  - name: solar-db
+    databaseName: solar_inspection
+    plan: starter       # PostgreSQL 16 — PostGIS disponible via CREATE EXTENSION
+    region: frankfurt

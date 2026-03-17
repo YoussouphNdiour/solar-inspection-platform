@@ -1,0 +1,29 @@
+{
+  "inspection_id": "inspection_001_CentraleMalicounda",
+  "site_name": "Centrale Malicounda",
+  "generated_at": "2025-09-30T11:00:00Z",
+  "pdf_url": "/reports/inspection_001_CentraleMalicounda/rapport_inspection.pdf",
+  "map_layers": {
+    "anomaly_geojson": "shared/anomalies/inspection_001_CentraleMalicounda/anomalies.geojson",
+    "thermal_cog": "shared/processed_images/inspection_001_CentraleMalicounda/thermal_cog.tif",
+    "rgb_ortho": "shared/processed_images/inspection_001_CentraleMalicounda/rgb_ortho.tif"
+  },
+  "kpis": {
+    "coa3_count": 6,
+    "coa2_count": 19,
+    "coa1_count": 22,
+    "total_anomalies": 47,
+    "power_loss_estimate_kwh_year": 57600,
+    "financial_impact_fcfa_year": 5760000,
+    "panels_analyzed": 3620
+  },
+  "iec_compliance": {
+    "irradiance_wm2": 820,
+    "wind_speed_ms": 1.8,
+    "compliant": true,
+    "standard": "IEC 62446-3"
+  },
+  "trend": {
+    "vs_last_inspection": "Première inspection — pas de baseline disponible"
+  }
+}

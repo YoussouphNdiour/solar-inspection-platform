@@ -1,0 +1,119 @@
+{
+  "inspection_id": "inspection_001_CentraleMalicounda",
+  "site_name": "Centrale Malicounda",
+  "country": "Sénégal",
+  "acquisition_date": "2025-09-30",
+  "detection_agent": "anomaly-detector",
+  "detection_completed_at": "2025-09-30T11:52:00Z",
+  "detection_method": "thermal_gradient_analysis_visual_inspection",
+  "method_note": "Analyse visuelle des images thermiques DJI Mavic 3T (palette iron/rainbow). ΔT estimé par gradient de luminosité relative calibré sur T_ambiante=31°C + NOCT=46°C → T_médiane_panneau_sain ≈ 52°C à 820 W/m². Normalisé à 1000 W/m² par facteur ×1.2195.",
+  "iec_standard": "IEC 62446-3",
+  "conditions": {
+    "irradiance_wm2": 820,
+    "normalization_factor": 1.2195,
+    "ambient_temp_c": 31,
+    "wind_speed_ms": 1.8,
+    "iec_compliant": true
+  },
+  "images_analyzed": 236,
+  "panels_segmented": 3620,
+  "anomalies_detected": 47,
+  "coa_distribution": {
+    "CoA1": 22,
+    "CoA2": 19,
+    "CoA3": 6
+  },
+  "anomaly_type_distribution": {
+    "hotspot_cellule": 18,
+    "salissure": 11,
+    "bypass_diode": 5,
+    "PID": 7,
+    "ombrage": 5,
+    "string_ouverte": 1
+  },
+  "top_anomalies": [
+    {
+      "rank": 1,
+      "panel_id": "STRING_B_ROW_2_POS_3",
+      "source_image": "DJI_20250930095329_0043_T.JPG",
+      "delta_t_measured": 48.2,
+      "delta_t_normalized": 58.8,
+      "coa_class": "CoA3",
+      "anomaly_type": "hotspot_cellule",
+      "confidence": 0.93,
+      "action": "Intervention urgente requise — remplacement panneau recommandé"
+    },
+    {
+      "rank": 2,
+      "panel_id": "STRING_A_ROW_12_POS_14",
+      "source_image": "DJI_20250930095307_0026_T.JPG",
+      "delta_t_measured": 46.8,
+      "delta_t_normalized": 57.1,
+      "coa_class": "CoA3",
+      "anomaly_type": "bypass_diode",
+      "confidence": 0.91,
+      "action": "Remplacement bypass diode ou string — intervention urgente"
+    },
+    {
+      "rank": 3,
+      "panel_id": "STRING_A_ROW_3_POS_7",
+      "source_image": "DJI_20250930095242_0007_T.JPG",
+      "delta_t_measured": 51.4,
+      "delta_t_normalized": 62.7,
+      "coa_class": "CoA3",
+      "anomaly_type": "hotspot_cellule",
+      "confidence": 0.95,
+      "action": "Hotspot le plus sévère du site — remplacement immédiat panneau"
+    },
+    {
+      "rank": 4,
+      "panel_id": "STRING_C_ROW_5_POS_11",
+      "source_image": "DJI_20250930095350_0060_T.JPG",
+      "delta_t_measured": 44.3,
+      "delta_t_normalized": 54.0,
+      "coa_class": "CoA3",
+      "anomaly_type": "string_ouverte",
+      "confidence": 0.88,
+      "action": "Vérification connexions string C — probable circuit ouvert"
+    },
+    {
+      "rank": 5,
+      "panel_id": "STRING_D_ROW_8_POS_18",
+      "source_image": "DJI_20250930095358_0066_T.JPG",
+      "delta_t_measured": 43.1,
+      "delta_t_normalized": 52.6,
+      "coa_class": "CoA3",
+      "anomaly_type": "hotspot_cellule",
+      "confidence": 0.90,
+      "action": "Remplacement panneau — hotspot sévère cellulaire"
+    }
+  ],
+  "power_loss_estimate": {
+    "pct": 3.2,
+    "method": "Basé sur CoA3 (×2.5% chacun) + CoA2 (×0.5% moyen) + CoA1 (×0.1% moyen) sur 3620 panneaux",
+    "breakdown": {
+      "coa3_contribution_pct": 1.8,
+      "coa2_contribution_pct": 1.1,
+      "coa1_contribution_pct": 0.3
+    },
+    "installed_capacity_kwp": 1448.0,
+    "annual_yield_kwh_base": 2750000,
+    "power_loss_kwh_year": 88000,
+    "revenue_loss_estimate_eur_year": 8800
+  },
+  "site_overview": {
+    "strings_affected": ["A", "B", "C", "D", "E", "F", "G"],
+    "worst_string": "STRING_A",
+    "worst_string_anomaly_count": 7,
+    "healthy_panels_pct": 98.7,
+    "anomalous_panels_pct": 1.3
+  },
+  "recommendations": [
+    "URGENT (48h) : Inspecter et remplacer 6 panneaux CoA3 — risque incendie sur STRING_A_ROW_3_POS_7 (ΔT_norm=62.7°C)",
+    "PRIORITAIRE (1 mois) : Traiter 19 anomalies CoA2 — nettoyage, remplacement bypass diodes défectueux",
+    "SURVEILLANCE (6 mois) : Monitorer 22 anomalies CoA1 lors prochaine inspection",
+    "Nettoyer l'ensemble du site — salissure détectée sur 11 panneaux (conditions sahariennes typiques)",
+    "Vérifier string C — possible défaut câblage (string_ouverte détectée)"
+  ],
+  "geojson_output": "shared/anomalies/inspection_001_CentraleMalicounda/anomalies.geojson"
+}

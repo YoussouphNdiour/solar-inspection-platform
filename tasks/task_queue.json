@@ -1,0 +1,59 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "process_images_inspection_001_CentraleMalicounda",
+      "description": "Traitement des images DJI (236 thermiques + 236 RGB) — Centrale Malicounda",
+      "agent": "image-processor",
+      "status": "completed",
+      "inspection_id": "inspection_001_CentraleMalicounda",
+      "created_at": "2025-09-30T09:52:33Z",
+      "started_at": "2025-09-30T10:00:00Z",
+      "completed_at": "2025-09-30T10:15:00Z"
+    },
+    {
+      "id": 2,
+      "name": "detect_anomalies_inspection_001_CentraleMalicounda",
+      "description": "Détection et classification IEC 62446-3 des anomalies thermiques — Centrale Malicounda",
+      "agent": "anomaly-detector",
+      "status": "completed",
+      "owner": "anomaly-detector",
+      "inspection_id": "inspection_001_CentraleMalicounda",
+      "created_at": "2025-09-30T10:15:00Z",
+      "started_at": "2025-09-30T10:16:00Z",
+      "completed_at": "2025-09-30T11:52:00Z",
+      "result_path": "shared/anomalies/inspection_001_CentraleMalicounda/anomalies.geojson"
+    },
+    {
+      "id": 3,
+      "name": "generate_report_inspection_001_CentraleMalicounda",
+      "description": "Génération rapport PDF IEC 62446-3 — Centrale Malicounda",
+      "agent": "report-generator",
+      "status": "completed",
+      "owner": "report-generator",
+      "inspection_id": "inspection_001_CentraleMalicounda",
+      "created_at": "2025-09-30T11:52:00Z",
+      "started_at": "2025-09-30T11:00:00Z",
+      "completed_at": "2025-09-30T11:05:00Z",
+      "depends_on": [2],
+      "result_paths": [
+        "shared/reports/inspection_001_CentraleMalicounda/dashboard.json",
+        "shared/reports/inspection_001_CentraleMalicounda/rapport_structure.json"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "create_work_orders_inspection_001_CentraleMalicounda",
+      "description": "Création des work orders de maintenance — CoA3: 6, CoA2: 19 anomalies",
+      "agent": "maint-manager",
+      "status": "completed",
+      "owner": "maint-manager",
+      "inspection_id": "inspection_001_CentraleMalicounda",
+      "created_at": "2025-09-30T11:52:00Z",
+      "started_at": "2025-09-30T11:00:00Z",
+      "completed_at": "2025-09-30T11:05:00Z",
+      "depends_on": [2],
+      "result_path": "shared/reports/inspection_001_CentraleMalicounda/work_orders.json"
+    }
+  ]
+}

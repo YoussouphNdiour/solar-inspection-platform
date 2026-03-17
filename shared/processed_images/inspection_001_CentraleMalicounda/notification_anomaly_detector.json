@@ -1,0 +1,17 @@
+{
+  "from": "image-processor",
+  "to": "anomaly-detector",
+  "sent_at": "2025-09-30T10:15:00Z",
+  "subject": "Images inspection_001_CentraleMalicounda prêtes — démarrage détection d'anomalies",
+  "message": "Images inspection_001_CentraleMalicounda traitées et conformes IEC 62446-3.\n- 236 images thermiques + 236 RGB traitées\n- Irradiance : 820 W/m² → facteur normalisation ΔT : ×1.2195\n- Orthomosaïque RGB + carte thermique disponibles dans shared/processed_images/inspection_001_CentraleMalicounda/\n- status.json confirmé : valid\nTu peux démarrer la détection d'anomalies.",
+  "inspection_id": "inspection_001_CentraleMalicounda",
+  "outputs_ready": {
+    "orthomosaic_rgb": "shared/processed_images/inspection_001_CentraleMalicounda/rgb_ortho.tif",
+    "thermal_map": "shared/processed_images/inspection_001_CentraleMalicounda/thermal_cog.tif",
+    "point_cloud": "shared/processed_images/inspection_001_CentraleMalicounda/cloud.laz",
+    "image_index": "shared/processed_images/inspection_001_CentraleMalicounda/image_index.json",
+    "iec_validation": "shared/processed_images/inspection_001_CentraleMalicounda/iec_validation_report.json"
+  },
+  "delta_t_normalization_factor": 1.2195,
+  "status": "valid"
+}

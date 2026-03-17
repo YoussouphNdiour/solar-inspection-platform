@@ -1,0 +1,24 @@
+{
+  "inspection_id": "inspection_001_CentraleMalicounda",
+  "status": "valid",
+  "iec_compliance": {
+    "irradiance_wm2": 820,
+    "wind_speed_ms": 1.8,
+    "ambient_temp_c": 31,
+    "compliant": true
+  },
+  "processing_summary": {
+    "thermal_images_processed": 236,
+    "rgb_images_processed": 236,
+    "pairs_aligned": 236,
+    "flight_duration_min": 5.07,
+    "coverage_pct": 98.5
+  },
+  "outputs": {
+    "orthomosaic_rgb": "shared/processed_images/inspection_001_CentraleMalicounda/rgb_ortho.tif",
+    "thermal_map": "shared/processed_images/inspection_001_CentraleMalicounda/thermal_cog.tif",
+    "point_cloud": "shared/processed_images/inspection_001_CentraleMalicounda/cloud.laz",
+    "coverage_pct": 98.5
+  },
+  "processed_at": "2025-09-30T10:15:00Z"
+}

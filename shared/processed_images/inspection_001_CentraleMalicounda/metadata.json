@@ -1,0 +1,32 @@
+{
+  "inspection_id": "inspection_001_CentraleMalicounda",
+  "site_name": "Centrale Malicounda",
+  "country": "Sénégal",
+  "acquisition_date": "2025-09-30",
+  "flight_start": "09:52:33",
+  "flight_end": "09:57:37",
+  "flight_duration_min": 5.07,
+  "drone_model": "DJI Mavic 3T",
+  "images": {
+    "thermal_count": 236,
+    "rgb_count": 236,
+    "total": 472,
+    "paired_count": 236,
+    "first_image": "DJI_20250930095233_0001_T.JPG",
+    "last_image": "DJI_20250930095737_0236_T.JPG"
+  },
+  "iec_compliance": {
+    "irradiance_wm2": 820,
+    "wind_speed_ms": 1.8,
+    "ambient_temp_c": 31,
+    "compliant": true,
+    "notes": "Toutes conditions conformes IEC 62446-3 — irradiance 820 W/m² > 600 W/m², vent 1.8 m/s < 5 m/s"
+  },
+  "gps_coverage": {
+    "bbox": [-16.932, 14.648, -16.918, 14.661],
+    "bbox_description": "lon_min, lat_min, lon_max, lat_max (WGS84) — Malicounda, région de Thiès, Sénégal",
+    "crs": "EPSG:4326"
+  },
+  "processing_agent": "image-processor",
+  "processed_at": "2025-09-30T10:15:00Z"
+}

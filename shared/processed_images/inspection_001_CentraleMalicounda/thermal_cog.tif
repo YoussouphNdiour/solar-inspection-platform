@@ -1,0 +1,8 @@
+PLACEHOLDER — Carte thermique GeoTIFF COG (Cloud Optimized)
+inspection_id: inspection_001_CentraleMalicounda
+generated_by: DJI thermal SDK + normalisation IEC 62446-3 (simulé)
+crs: EPSG:32628 (WGS84 UTM Zone 28N)
+resolution_cm: 7.0
+bands: 1 (température °C normalisée à 1000 W/m²)
+delta_t_normalization_factor: 1.2195
+size_approx_mb: 87

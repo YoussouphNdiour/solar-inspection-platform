@@ -1,0 +1,49 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: solar_inspection
+      POSTGRES_USER: solar
+      POSTGRES_PASSWORD: solar_dev_pwd
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U solar -d solar_inspection"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./src/backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://solar:solar_dev_pwd@db:5432/solar_inspection
+      SHARED_DIR: /app/shared
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./shared:/app/shared
+      - ./src/backend:/app
+
+  frontend:
+    build: ./src/frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:8000/api/v1
+    depends_on:
+      - backend
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  pgdata:

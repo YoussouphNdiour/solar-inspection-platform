@@ -1,0 +1,317 @@
+{
+  "inspection_id": "inspection_001_CentraleMalicounda",
+  "site_name": "Centrale Malicounda",
+  "generated_at": "2025-09-30T11:00:00Z",
+  "summary": {
+    "total_wo": 9,
+    "urgent_wo": 4,
+    "scheduled_wo": 5,
+    "total_cost_estimate_fcfa": 1270000,
+    "total_power_recovery_kwh_year": 45360
+  },
+  "work_orders": [
+    {
+      "wo_id": "WO-2025-001-MAL",
+      "priority": "urgent",
+      "deadline": "2025-10-02T23:59:59Z",
+      "string_cluster": "STRING_A",
+      "anomalies": [
+        {
+          "panel_id": "STRING_A_ROW_3_POS_7",
+          "coa_class": "CoA3",
+          "anomaly_type": "hotspot_cellule",
+          "delta_t_normalized": 62.7,
+          "action_required": "Remplacement panneau immédiat — risque incendie"
+        },
+        {
+          "panel_id": "STRING_A_ROW_12_POS_14",
+          "coa_class": "CoA3",
+          "anomaly_type": "bypass_diode",
+          "delta_t_normalized": 57.1,
+          "action_required": "Remplacement diode bypass / panneau — perte de production sous-string"
+        }
+      ],
+      "estimated_cost_fcfa": 170000,
+      "estimated_power_recovery_kwh_year": 11520,
+      "roi_months": 3.5,
+      "assigned_to": null,
+      "status": "open",
+      "notes": "URGENT — STRING_A : 2 anomalies CoA3. ΔT_norm max 62.7°C. Risque incendie sur ROW_3_POS_7. Regrouper intervention sur STRING_A pour optimiser temps technicien.",
+      "materiel_requis": ["Panneau PV compatible STRING_A", "Diode bypass 20A", "Outillage électrique", "EPI anti-UV"]
+    },
+    {
+      "wo_id": "WO-2025-002-MAL",
+      "priority": "urgent",
+      "deadline": "2025-10-02T23:59:59Z",
+      "string_cluster": "STRING_B",
+      "anomalies": [
+        {
+          "panel_id": "STRING_B_ROW_2_POS_3",
+          "coa_class": "CoA3",
+          "anomaly_type": "hotspot_cellule",
+          "delta_t_normalized": 58.8,
+          "action_required": "Remplacement panneau immédiat — risque incendie élevé"
+        }
+      ],
+      "estimated_cost_fcfa": 85000,
+      "estimated_power_recovery_kwh_year": 7200,
+      "roi_months": 2.8,
+      "assigned_to": null,
+      "status": "open",
+      "notes": "URGENT — STRING_B ROW_2 : hotspot cellulaire sévère 58.8°C normalisé. Probable micro-fissure ou contamination. Risque incendie.",
+      "materiel_requis": ["Panneau PV compatible STRING_B", "Outillage électrique", "EPI anti-UV"]
+    },
+    {
+      "wo_id": "WO-2025-003-MAL",
+      "priority": "urgent",
+      "deadline": "2025-10-02T23:59:59Z",
+      "string_cluster": "STRING_C",
+      "anomalies": [
+        {
+          "panel_id": "STRING_C_ROW_5_POS_11",
+          "coa_class": "CoA3",
+          "anomaly_type": "string_ouverte",
+          "delta_t_normalized": 54.0,
+          "action_required": "Diagnostic électrique string — identification connexion ouverte — réparation ou remplacement panneau défaillant"
+        }
+      ],
+      "estimated_cost_fcfa": 85000,
+      "estimated_power_recovery_kwh_year": 9000,
+      "roi_months": 2.3,
+      "assigned_to": null,
+      "status": "open",
+      "notes": "URGENT — STRING_C : string_ouverte détectée. Toute la row à température élevée uniforme. Perte de production de la string entière. Diagnostic électrique requis en priorité avant remplacement.",
+      "materiel_requis": ["Multimètre DC haute tension", "Câble solaire MC4", "Connecteurs MC4", "Panneau PV de remplacement (si défaillance panneau)", "EPI électrique"]
+    },
+    {
+      "wo_id": "WO-2025-004-MAL",
+      "priority": "urgent",
+      "deadline": "2025-10-02T23:59:59Z",
+      "string_cluster": "STRING_D_STRING_E",
+      "anomalies": [
+        {
+          "panel_id": "STRING_D_ROW_8_POS_18",
+          "coa_class": "CoA3",
+          "anomaly_type": "hotspot_cellule",
+          "delta_t_normalized": 52.6,
+          "action_required": "Remplacement panneau immédiat — risque incendie"
+        },
+        {
+          "panel_id": "STRING_E_ROW_6_POS_5",
+          "coa_class": "CoA3",
+          "anomaly_type": "PID",
+          "delta_t_normalized": 50.9,
+          "action_required": "Test PID en laboratoire — traitement anti-PID ou remplacement selon résultats"
+        }
+      ],
+      "estimated_cost_fcfa": 170000,
+      "estimated_power_recovery_kwh_year": 12240,
+      "roi_months": 3.3,
+      "assigned_to": null,
+      "status": "open",
+      "notes": "URGENT — STRING_D et STRING_E zones adjacentes : regroupées pour optimiser déplacement technicien. STRING_D_ROW_8 hotspot sévère risque incendie. STRING_E_ROW_6 dégradation PID avancée CoA3.",
+      "materiel_requis": ["Panneau PV compatible STRING_D", "Kit anti-PID / testeur PID", "EPI anti-UV", "Outillage électrique"]
+    },
+    {
+      "wo_id": "WO-2025-005-MAL",
+      "priority": "scheduled",
+      "deadline": "2025-12-29",
+      "string_cluster": "STRING_A",
+      "anomalies": [
+        {
+          "panel_id": "STRING_A_ROW_7_POS_2",
+          "coa_class": "CoA2",
+          "anomaly_type": "hotspot_cellule",
+          "delta_t_normalized": 39.5,
+          "action_required": "Inspection visuelle et remplacement si confirmation dégradation"
+        },
+        {
+          "panel_id": "STRING_A_ROW_15_POS_6",
+          "coa_class": "CoA2",
+          "anomaly_type": "PID",
+          "delta_t_normalized": 25.4,
+          "action_required": "Test PID — traitement anti-PID ou remplacement selon résultats"
+        },
+        {
+          "panel_id": "STRING_A_ROW_4_POS_20",
+          "coa_class": "CoA2",
+          "anomaly_type": "salissure",
+          "delta_t_normalized": 16.7,
+          "action_required": "Nettoyage panneau haute pression eau déminéralisée"
+        }
+      ],
+      "estimated_cost_fcfa": 175000,
+      "estimated_power_recovery_kwh_year": 5400,
+      "roi_months": 7.7,
+      "assigned_to": null,
+      "status": "open",
+      "notes": "PLANIFIÉ — STRING_A : 3 anomalies CoA2 regroupées. Optimiser avec WO-2025-001-MAL si non encore clôturé.",
+      "materiel_requis": ["Panneau PV de remplacement (si nécessaire)", "Kit nettoyage haute pression", "Eau déminéralisée", "Kit anti-PID"]
+    },
+    {
+      "wo_id": "WO-2025-006-MAL",
+      "priority": "scheduled",
+      "deadline": "2025-12-29",
+      "string_cluster": "STRING_B",
+      "anomalies": [
+        {
+          "panel_id": "STRING_B_ROW_9_POS_16",
+          "coa_class": "CoA2",
+          "anomaly_type": "salissure",
+          "delta_t_normalized": 36.4,
+          "action_required": "Nettoyage panneau haute pression eau déminéralisée"
+        },
+        {
+          "panel_id": "STRING_B_ROW_17_POS_13",
+          "coa_class": "CoA2",
+          "anomaly_type": "hotspot_cellule",
+          "delta_t_normalized": 23.7,
+          "action_required": "Inspection visuelle et remplacement si confirmation"
+        },
+        {
+          "panel_id": "STRING_B_ROW_6_POS_2",
+          "coa_class": "CoA2",
+          "anomaly_type": "hotspot_cellule",
+          "delta_t_normalized": 14.8,
+          "action_required": "Inspection visuelle — reclassifier à la prochaine inspection si stable"
+        }
+      ],
+      "estimated_cost_fcfa": 135000,
+      "estimated_power_recovery_kwh_year": 4320,
+      "roi_months": 7.5,
+      "assigned_to": null,
+      "status": "open",
+      "notes": "PLANIFIÉ — STRING_B : 3 anomalies CoA2. Nettoyage prioritaire ROW_9 puis inspection visuelle hotspots ROW_17 et ROW_6.",
+      "materiel_requis": ["Kit nettoyage haute pression", "Eau déminéralisée", "Panneau PV (si remplacement nécessaire)"]
+    },
+    {
+      "wo_id": "WO-2025-007-MAL",
+      "priority": "scheduled",
+      "deadline": "2025-12-29",
+      "string_cluster": "STRING_C",
+      "anomalies": [
+        {
+          "panel_id": "STRING_C_ROW_11_POS_8",
+          "coa_class": "CoA2",
+          "anomaly_type": "bypass_diode",
+          "delta_t_normalized": 33.7,
+          "action_required": "Remplacement diode bypass"
+        },
+        {
+          "panel_id": "STRING_C_ROW_19_POS_17",
+          "coa_class": "CoA2",
+          "anomaly_type": "bypass_diode",
+          "delta_t_normalized": 22.7,
+          "action_required": "Remplacement diode bypass"
+        },
+        {
+          "panel_id": "STRING_C_ROW_8_POS_5",
+          "coa_class": "CoA2",
+          "anomaly_type": "PID",
+          "delta_t_normalized": 13.9,
+          "action_required": "Test PID — surveillance renforcée ou traitement"
+        }
+      ],
+      "estimated_cost_fcfa": 135000,
+      "estimated_power_recovery_kwh_year": 3960,
+      "roi_months": 8.2,
+      "assigned_to": null,
+      "status": "open",
+      "notes": "PLANIFIÉ — STRING_C : 2 bypass diodes + 1 PID naissant. Optimiser avec WO-2025-003-MAL si technicien déjà sur STRING_C.",
+      "materiel_requis": ["Diodes bypass 20A (x2)", "Testeur PID / analyseur courbe I-V", "Outillage électrique"]
+    },
+    {
+      "wo_id": "WO-2025-008-MAL",
+      "priority": "scheduled",
+      "deadline": "2025-12-29",
+      "string_cluster": "STRING_D",
+      "anomalies": [
+        {
+          "panel_id": "STRING_D_ROW_14_POS_12",
+          "coa_class": "CoA2",
+          "anomaly_type": "hotspot_cellule",
+          "delta_t_normalized": 30.6,
+          "action_required": "Inspection visuelle et remplacement si confirmation"
+        },
+        {
+          "panel_id": "STRING_D_ROW_2_POS_1",
+          "coa_class": "CoA2",
+          "anomaly_type": "salissure",
+          "delta_t_normalized": 21.0,
+          "action_required": "Nettoyage panneau"
+        },
+        {
+          "panel_id": "STRING_D_ROW_16_POS_11",
+          "coa_class": "CoA2",
+          "anomaly_type": "hotspot_cellule",
+          "delta_t_normalized": 12.6,
+          "action_required": "Surveillance — reclassifier à la prochaine inspection"
+        }
+      ],
+      "estimated_cost_fcfa": 135000,
+      "estimated_power_recovery_kwh_year": 2880,
+      "roi_months": 11.2,
+      "assigned_to": null,
+      "status": "open",
+      "notes": "PLANIFIÉ — STRING_D : 3 anomalies CoA2. Optimiser avec WO-2025-004-MAL si technicien déjà sur STRING_D.",
+      "materiel_requis": ["Kit nettoyage", "Panneau PV (si remplacement nécessaire)"]
+    },
+    {
+      "wo_id": "WO-2025-009-MAL",
+      "priority": "scheduled",
+      "deadline": "2025-12-29",
+      "string_cluster": "STRING_E_STRING_F_STRING_G",
+      "anomalies": [
+        {
+          "panel_id": "STRING_E_ROW_3_POS_19",
+          "coa_class": "CoA2",
+          "anomaly_type": "ombrage",
+          "delta_t_normalized": 29.2,
+          "action_required": "Suppression obstacle ombrant — élagage végétation ou déplacement objet"
+        },
+        {
+          "panel_id": "STRING_E_ROW_10_POS_15",
+          "coa_class": "CoA2",
+          "anomaly_type": "hotspot_cellule",
+          "delta_t_normalized": 20.5,
+          "action_required": "Inspection visuelle et remplacement si confirmation"
+        },
+        {
+          "panel_id": "STRING_F_ROW_1_POS_4",
+          "coa_class": "CoA2",
+          "anomaly_type": "hotspot_cellule",
+          "delta_t_normalized": 27.7,
+          "action_required": "Inspection visuelle et remplacement si confirmation (probable micro-fissure)"
+        },
+        {
+          "panel_id": "STRING_F_ROW_7_POS_10",
+          "coa_class": "CoA2",
+          "anomaly_type": "ombrage",
+          "delta_t_normalized": 19.4,
+          "action_required": "Suppression obstacle ombrant"
+        },
+        {
+          "panel_id": "STRING_G_ROW_4_POS_9",
+          "coa_class": "CoA2",
+          "anomaly_type": "salissure",
+          "delta_t_normalized": 26.0,
+          "action_required": "Nettoyage panneau"
+        },
+        {
+          "panel_id": "STRING_G_ROW_13_POS_7",
+          "coa_class": "CoA2",
+          "anomaly_type": "hotspot_cellule",
+          "delta_t_normalized": 18.1,
+          "action_required": "Inspection visuelle"
+        }
+      ],
+      "estimated_cost_fcfa": 270000,
+      "estimated_power_recovery_kwh_year": 6840,
+      "roi_months": 9.5,
+      "assigned_to": null,
+      "status": "open",
+      "notes": "PLANIFIÉ — Strings E, F, G regroupées (zone contiguë du champ). 6 anomalies CoA2 de types variés. Déplacement technicien unique pour couvrir toute la zone.",
+      "materiel_requis": ["Tronçonneuse / matériel élagage", "Kit nettoyage haute pression", "Eau déminéralisée", "Panneau PV (x2 si remplacements nécessaires)", "EPI anti-UV"]
+    }
+  ]
+}

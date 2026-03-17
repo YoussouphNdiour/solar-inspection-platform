@@ -1,0 +1,456 @@
+{
+  "report_id": "RPT-2025-001-MALICOUNDA",
+  "inspection_id": "inspection_001_CentraleMalicounda",
+  "title": "Rapport d'Inspection Thermique — Centrale Malicounda",
+  "standard": "IEC 62446-3",
+  "sections": [
+    {
+      "num": 1,
+      "title": "Page de garde",
+      "content": {
+        "site": "Centrale Malicounda",
+        "localisation": "Malicounda, Sénégal",
+        "date_inspection": "30 septembre 2025",
+        "date_rapport": "30 septembre 2025",
+        "inspection_id": "inspection_001_CentraleMalicounda",
+        "drone": "DJI Mavic 3T",
+        "capteur_thermique": "FLIR Lepton 3.5 intégré",
+        "operateur": "Solar Inspection Platform",
+        "norme_appliquee": "IEC 62446-3",
+        "puissance_installee_mwc": 1,
+        "nombre_panneaux_analyses": 3620
+      }
+    },
+    {
+      "num": 2,
+      "title": "Résumé exécutif",
+      "content": {
+        "kpis": {
+          "total_anomalies": 47,
+          "coa3_critique": 6,
+          "coa2_planifie": 19,
+          "coa1_surveillance": 22,
+          "perte_puissance_pct": 3.2,
+          "perte_puissance_kwh_an": 57600,
+          "impact_financier_fcfa_an": 5760000
+        },
+        "verdict": "Intervention requise",
+        "urgences": [
+          "STRING_A_ROW_3_POS_7 — hotspot_cellule CoA3 — ΔT_norm 62.7°C — risque incendie",
+          "STRING_B_ROW_2_POS_3 — hotspot_cellule CoA3 — ΔT_norm 58.8°C — risque incendie",
+          "STRING_A_ROW_12_POS_14 — bypass_diode CoA3 — ΔT_norm 57.1°C — perte de string",
+          "STRING_C_ROW_5_POS_11 — string_ouverte CoA3 — ΔT_norm 54.0°C — perte de string entière",
+          "STRING_D_ROW_8_POS_18 — hotspot_cellule CoA3 — ΔT_norm 52.6°C — risque incendie",
+          "STRING_E_ROW_6_POS_5 — PID CoA3 — ΔT_norm 50.9°C — dégradation accélérée"
+        ],
+        "synthese": "L'inspection thermique par drone de la Centrale Malicounda (1 MWc) révèle 47 anomalies sur 3 620 panneaux analysés. 6 anomalies critiques CoA3 nécessitent une intervention immédiate dans les 48h (risque incendie et perte de production significative). 19 anomalies CoA2 doivent être planifiées sous 90 jours. La perte de puissance estimée est de 3,2%, soit 57 600 kWh/an (5 760 000 FCFA/an). Il s'agit de la première inspection — aucune baseline de comparaison disponible."
+      }
+    },
+    {
+      "num": 3,
+      "title": "Anomalies Critiques CoA3",
+      "content": {
+        "recommandation": "Action urgente — intervention requise dans les 48h (avant le 2025-10-02T23:59:59Z)",
+        "nombre_anomalies": 6,
+        "anomalies": [
+          {
+            "panel_id": "STRING_A_ROW_3_POS_7",
+            "string": "STRING_A",
+            "row": 3,
+            "position": 7,
+            "coa_class": "CoA3",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_measured_c": 51.4,
+            "delta_t_normalized_c": 62.7,
+            "confidence": 0.95,
+            "source_image": "DJI_20250930095242_0007_T.JPG",
+            "observation": "Point chaud brillant isolé visible image 0007 — pixel orange vif sur fond violet. Gradient très élevé.",
+            "risque": "Risque incendie — dégradation cellulaire sévère",
+            "action": "Remplacement panneau immédiat",
+            "coordonnees": {"lat": 14.6592, "lon": -16.9296}
+          },
+          {
+            "panel_id": "STRING_A_ROW_12_POS_14",
+            "string": "STRING_A",
+            "row": 12,
+            "position": 14,
+            "coa_class": "CoA3",
+            "anomaly_type": "bypass_diode",
+            "delta_t_measured_c": 46.8,
+            "delta_t_normalized_c": 57.1,
+            "confidence": 0.91,
+            "source_image": "DJI_20250930095307_0026_T.JPG",
+            "observation": "Zone entière d'une demi-string chaude — signature bypass diode actif. Visible comme bande orange horizontale.",
+            "risque": "Perte production sous-string — dégradation accélérée",
+            "action": "Remplacement diode bypass / panneau",
+            "coordonnees": {"lat": 14.6560, "lon": -16.9259}
+          },
+          {
+            "panel_id": "STRING_B_ROW_2_POS_3",
+            "string": "STRING_B",
+            "row": 2,
+            "position": 3,
+            "coa_class": "CoA3",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_measured_c": 48.2,
+            "delta_t_normalized_c": 58.8,
+            "confidence": 0.93,
+            "source_image": "DJI_20250930095329_0043_T.JPG",
+            "observation": "Hotspot ponctuel très intense coin inférieur droit du panneau. Probable micro-fissure ou contamination locale.",
+            "risque": "Risque incendie — micro-fissure ou contaminant",
+            "action": "Remplacement panneau immédiat",
+            "coordonnees": {"lat": 14.6614, "lon": -16.9308}
+          },
+          {
+            "panel_id": "STRING_C_ROW_5_POS_11",
+            "string": "STRING_C",
+            "row": 5,
+            "position": 11,
+            "coa_class": "CoA3",
+            "anomaly_type": "string_ouverte",
+            "delta_t_measured_c": 44.3,
+            "delta_t_normalized_c": 54.0,
+            "confidence": 0.88,
+            "source_image": "DJI_20250930095350_0060_T.JPG",
+            "observation": "Row entière à température élevée uniforme. Image 0060 montre une string complète orange vs panneaux voisins violet. Probable string ouverte forçant courant sur diode.",
+            "risque": "Perte production string complète — surtension diodes adjacentes",
+            "action": "Diagnostic électrique string — identification connexion ouverte",
+            "coordonnees": {"lat": 14.6575, "lon": -16.9276}
+          },
+          {
+            "panel_id": "STRING_D_ROW_8_POS_18",
+            "string": "STRING_D",
+            "row": 8,
+            "position": 18,
+            "coa_class": "CoA3",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_measured_c": 43.1,
+            "delta_t_normalized_c": 52.6,
+            "confidence": 0.90,
+            "source_image": "DJI_20250930095358_0066_T.JPG",
+            "observation": "Point lumineux isolé sur image 0066 — pixel blanc/jaune distinct sur fond violet/orange. Hotspot cellulaire sévère.",
+            "risque": "Risque incendie — hotspot cellulaire sévère",
+            "action": "Remplacement panneau immédiat",
+            "coordonnees": {"lat": 14.6550, "lon": -16.9223}
+          },
+          {
+            "panel_id": "STRING_E_ROW_6_POS_5",
+            "string": "STRING_E",
+            "row": 6,
+            "position": 5,
+            "coa_class": "CoA3",
+            "anomaly_type": "PID",
+            "delta_t_measured_c": 41.7,
+            "delta_t_normalized_c": 50.9,
+            "confidence": 0.86,
+            "source_image": "DJI_20250930095441_0099_T.JPG",
+            "observation": "Dégradation PID suspectée — plusieurs cellules adjacentes à température élevée diffuse. Pattern caractéristique dégradation potentielle induite.",
+            "risque": "Dégradation irréversible accélérée — perte efficacité string",
+            "action": "Test PID en laboratoire — envisager traitement anti-PID ou remplacement",
+            "coordonnees": {"lat": 14.6603, "lon": -16.9242}
+          }
+        ]
+      }
+    },
+    {
+      "num": 4,
+      "title": "Anomalies CoA2",
+      "content": {
+        "recommandation": "Action planifiée — intervention requise sous 90 jours (avant le 2025-12-29)",
+        "nombre_anomalies": 19,
+        "anomalies": [
+          {
+            "panel_id": "STRING_A_ROW_7_POS_2",
+            "coa_class": "CoA2",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_normalized_c": 39.5,
+            "confidence": 0.89,
+            "action": "Inspection visuelle et remplacement si confirmation"
+          },
+          {
+            "panel_id": "STRING_B_ROW_9_POS_16",
+            "coa_class": "CoA2",
+            "anomaly_type": "salissure",
+            "delta_t_normalized_c": 36.4,
+            "confidence": 0.82,
+            "action": "Nettoyage panneau — haute pression eau déminéralisée"
+          },
+          {
+            "panel_id": "STRING_C_ROW_11_POS_8",
+            "coa_class": "CoA2",
+            "anomaly_type": "bypass_diode",
+            "delta_t_normalized_c": 33.7,
+            "confidence": 0.87,
+            "action": "Remplacement diode bypass"
+          },
+          {
+            "panel_id": "STRING_D_ROW_14_POS_12",
+            "coa_class": "CoA2",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_normalized_c": 30.6,
+            "confidence": 0.84,
+            "action": "Inspection visuelle et remplacement si confirmation"
+          },
+          {
+            "panel_id": "STRING_E_ROW_3_POS_19",
+            "coa_class": "CoA2",
+            "anomaly_type": "ombrage",
+            "delta_t_normalized_c": 29.2,
+            "confidence": 0.79,
+            "action": "Suppression obstacle ombrant — élagage végétation"
+          },
+          {
+            "panel_id": "STRING_F_ROW_1_POS_4",
+            "coa_class": "CoA2",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_normalized_c": 27.7,
+            "confidence": 0.85,
+            "action": "Inspection visuelle et remplacement si confirmation"
+          },
+          {
+            "panel_id": "STRING_G_ROW_4_POS_9",
+            "coa_class": "CoA2",
+            "anomaly_type": "salissure",
+            "delta_t_normalized_c": 26.0,
+            "confidence": 0.78,
+            "action": "Nettoyage panneau"
+          },
+          {
+            "panel_id": "STRING_A_ROW_15_POS_6",
+            "coa_class": "CoA2",
+            "anomaly_type": "PID",
+            "delta_t_normalized_c": 25.4,
+            "confidence": 0.81,
+            "action": "Test PID — traitement anti-PID ou remplacement"
+          },
+          {
+            "panel_id": "STRING_B_ROW_17_POS_13",
+            "coa_class": "CoA2",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_normalized_c": 23.7,
+            "confidence": 0.83,
+            "action": "Inspection visuelle et remplacement si confirmation"
+          },
+          {
+            "panel_id": "STRING_C_ROW_19_POS_17",
+            "coa_class": "CoA2",
+            "anomaly_type": "bypass_diode",
+            "delta_t_normalized_c": 22.7,
+            "confidence": 0.80,
+            "action": "Remplacement diode bypass"
+          },
+          {
+            "panel_id": "STRING_D_ROW_2_POS_1",
+            "coa_class": "CoA2",
+            "anomaly_type": "salissure",
+            "delta_t_normalized_c": 21.0,
+            "confidence": 0.76,
+            "action": "Nettoyage panneau"
+          },
+          {
+            "panel_id": "STRING_E_ROW_10_POS_15",
+            "coa_class": "CoA2",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_normalized_c": 20.5,
+            "confidence": 0.82,
+            "action": "Inspection visuelle et remplacement si confirmation"
+          },
+          {
+            "panel_id": "STRING_F_ROW_7_POS_10",
+            "coa_class": "CoA2",
+            "anomaly_type": "ombrage",
+            "delta_t_normalized_c": 19.4,
+            "confidence": 0.74,
+            "action": "Suppression obstacle ombrant"
+          },
+          {
+            "panel_id": "STRING_G_ROW_13_POS_7",
+            "coa_class": "CoA2",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_normalized_c": 18.1,
+            "confidence": 0.79,
+            "action": "Inspection visuelle"
+          },
+          {
+            "panel_id": "STRING_A_ROW_4_POS_20",
+            "coa_class": "CoA2",
+            "anomaly_type": "salissure",
+            "delta_t_normalized_c": 16.7,
+            "confidence": 0.75,
+            "action": "Nettoyage panneau"
+          },
+          {
+            "panel_id": "STRING_B_ROW_6_POS_2",
+            "coa_class": "CoA2",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_normalized_c": 14.8,
+            "confidence": 0.77,
+            "action": "Inspection visuelle"
+          },
+          {
+            "panel_id": "STRING_C_ROW_8_POS_5",
+            "coa_class": "CoA2",
+            "anomaly_type": "PID",
+            "delta_t_normalized_c": 13.9,
+            "confidence": 0.73,
+            "action": "Test PID — surveillance renforcée"
+          },
+          {
+            "panel_id": "STRING_D_ROW_16_POS_11",
+            "coa_class": "CoA2",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_normalized_c": 12.6,
+            "confidence": 0.72,
+            "action": "Surveillance — reclassification à la prochaine inspection"
+          },
+          {
+            "panel_id": "STRING_E_ROW_18_POS_14",
+            "coa_class": "CoA1",
+            "anomaly_type": "hotspot_cellule",
+            "delta_t_normalized_c": 11.9,
+            "confidence": 0.70,
+            "note": "Limite CoA1/CoA2 — inclus pour surveillance renforcée",
+            "action": "Surveillance — inclure dans prochaine inspection prioritaire"
+          }
+        ]
+      }
+    },
+    {
+      "num": 5,
+      "title": "Tableau récapitulatif",
+      "content": {
+        "sorted_by": "delta_t_normalized desc",
+        "all_anomalies": [
+          {"panel_id": "STRING_A_ROW_3_POS_7", "coa_class": "CoA3", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 62.7, "confidence": 0.95},
+          {"panel_id": "STRING_B_ROW_2_POS_3", "coa_class": "CoA3", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 58.8, "confidence": 0.93},
+          {"panel_id": "STRING_A_ROW_12_POS_14", "coa_class": "CoA3", "anomaly_type": "bypass_diode", "delta_t_normalized": 57.1, "confidence": 0.91},
+          {"panel_id": "STRING_C_ROW_5_POS_11", "coa_class": "CoA3", "anomaly_type": "string_ouverte", "delta_t_normalized": 54.0, "confidence": 0.88},
+          {"panel_id": "STRING_D_ROW_8_POS_18", "coa_class": "CoA3", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 52.6, "confidence": 0.90},
+          {"panel_id": "STRING_E_ROW_6_POS_5", "coa_class": "CoA3", "anomaly_type": "PID", "delta_t_normalized": 50.9, "confidence": 0.86},
+          {"panel_id": "STRING_A_ROW_7_POS_2", "coa_class": "CoA2", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 39.5, "confidence": 0.89},
+          {"panel_id": "STRING_B_ROW_9_POS_16", "coa_class": "CoA2", "anomaly_type": "salissure", "delta_t_normalized": 36.4, "confidence": 0.82},
+          {"panel_id": "STRING_C_ROW_11_POS_8", "coa_class": "CoA2", "anomaly_type": "bypass_diode", "delta_t_normalized": 33.7, "confidence": 0.87},
+          {"panel_id": "STRING_D_ROW_14_POS_12", "coa_class": "CoA2", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 30.6, "confidence": 0.84},
+          {"panel_id": "STRING_E_ROW_3_POS_19", "coa_class": "CoA2", "anomaly_type": "ombrage", "delta_t_normalized": 29.2, "confidence": 0.79},
+          {"panel_id": "STRING_F_ROW_1_POS_4", "coa_class": "CoA2", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 27.7, "confidence": 0.85},
+          {"panel_id": "STRING_G_ROW_4_POS_9", "coa_class": "CoA2", "anomaly_type": "salissure", "delta_t_normalized": 26.0, "confidence": 0.78},
+          {"panel_id": "STRING_A_ROW_15_POS_6", "coa_class": "CoA2", "anomaly_type": "PID", "delta_t_normalized": 25.4, "confidence": 0.81},
+          {"panel_id": "STRING_B_ROW_17_POS_13", "coa_class": "CoA2", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 23.7, "confidence": 0.83},
+          {"panel_id": "STRING_C_ROW_19_POS_17", "coa_class": "CoA2", "anomaly_type": "bypass_diode", "delta_t_normalized": 22.7, "confidence": 0.80},
+          {"panel_id": "STRING_D_ROW_2_POS_1", "coa_class": "CoA2", "anomaly_type": "salissure", "delta_t_normalized": 21.0, "confidence": 0.76},
+          {"panel_id": "STRING_E_ROW_10_POS_15", "coa_class": "CoA2", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 20.5, "confidence": 0.82},
+          {"panel_id": "STRING_F_ROW_7_POS_10", "coa_class": "CoA2", "anomaly_type": "ombrage", "delta_t_normalized": 19.4, "confidence": 0.74},
+          {"panel_id": "STRING_G_ROW_13_POS_7", "coa_class": "CoA2", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 18.1, "confidence": 0.79},
+          {"panel_id": "STRING_A_ROW_4_POS_20", "coa_class": "CoA2", "anomaly_type": "salissure", "delta_t_normalized": 16.7, "confidence": 0.75},
+          {"panel_id": "STRING_B_ROW_6_POS_2", "coa_class": "CoA2", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 14.8, "confidence": 0.77},
+          {"panel_id": "STRING_C_ROW_8_POS_5", "coa_class": "CoA2", "anomaly_type": "PID", "delta_t_normalized": 13.9, "confidence": 0.73},
+          {"panel_id": "STRING_D_ROW_16_POS_11", "coa_class": "CoA2", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 12.6, "confidence": 0.72},
+          {"panel_id": "STRING_E_ROW_18_POS_14", "coa_class": "CoA1", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 11.9, "confidence": 0.70},
+          {"panel_id": "STRING_F_ROW_11_POS_16", "coa_class": "CoA1", "anomaly_type": "salissure", "delta_t_normalized": 11.4, "confidence": 0.68},
+          {"panel_id": "STRING_G_ROW_15_POS_3", "coa_class": "CoA1", "anomaly_type": "ombrage", "delta_t_normalized": 10.6, "confidence": 0.67},
+          {"panel_id": "STRING_A_ROW_1_POS_1", "coa_class": "CoA1", "anomaly_type": "salissure", "delta_t_normalized": 10.2, "confidence": 0.66},
+          {"panel_id": "STRING_B_ROW_3_POS_18", "coa_class": "CoA1", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 9.9, "confidence": 0.65},
+          {"panel_id": "STRING_C_ROW_5_POS_14", "coa_class": "CoA1", "anomaly_type": "PID", "delta_t_normalized": 9.6, "confidence": 0.64},
+          {"panel_id": "STRING_D_ROW_7_POS_8", "coa_class": "CoA1", "anomaly_type": "salissure", "delta_t_normalized": 9.3, "confidence": 0.63},
+          {"panel_id": "STRING_E_ROW_9_POS_6", "coa_class": "CoA1", "anomaly_type": "ombrage", "delta_t_normalized": 8.9, "confidence": 0.62},
+          {"panel_id": "STRING_F_ROW_2_POS_12", "coa_class": "CoA1", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 8.7, "confidence": 0.61},
+          {"panel_id": "STRING_G_ROW_16_POS_20", "coa_class": "CoA1", "anomaly_type": "salissure", "delta_t_normalized": 8.3, "confidence": 0.60},
+          {"panel_id": "STRING_A_ROW_11_POS_9", "coa_class": "CoA1", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 7.9, "confidence": 0.59},
+          {"panel_id": "STRING_B_ROW_13_POS_4", "coa_class": "CoA1", "anomaly_type": "PID", "delta_t_normalized": 7.6, "confidence": 0.58},
+          {"panel_id": "STRING_C_ROW_15_POS_18", "coa_class": "CoA1", "anomaly_type": "ombrage", "delta_t_normalized": 7.2, "confidence": 0.57},
+          {"panel_id": "STRING_D_ROW_4_POS_16", "coa_class": "CoA1", "anomaly_type": "salissure", "delta_t_normalized": 7.0, "confidence": 0.56},
+          {"panel_id": "STRING_E_ROW_12_POS_7", "coa_class": "CoA1", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 6.6, "confidence": 0.55},
+          {"panel_id": "STRING_F_ROW_14_POS_13", "coa_class": "CoA1", "anomaly_type": "ombrage", "delta_t_normalized": 6.2, "confidence": 0.54},
+          {"panel_id": "STRING_G_ROW_8_POS_11", "coa_class": "CoA1", "anomaly_type": "salissure", "delta_t_normalized": 6.0, "confidence": 0.53},
+          {"panel_id": "STRING_A_ROW_2_POS_5", "coa_class": "CoA1", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 5.7, "confidence": 0.52},
+          {"panel_id": "STRING_B_ROW_5_POS_17", "coa_class": "CoA1", "anomaly_type": "PID", "delta_t_normalized": 5.4, "confidence": 0.51},
+          {"panel_id": "STRING_C_ROW_17_POS_9", "coa_class": "CoA1", "anomaly_type": "ombrage", "delta_t_normalized": 5.1, "confidence": 0.51},
+          {"panel_id": "STRING_D_ROW_10_POS_15", "coa_class": "CoA1", "anomaly_type": "salissure", "delta_t_normalized": 4.8, "confidence": 0.50},
+          {"panel_id": "STRING_E_ROW_14_POS_3", "coa_class": "CoA1", "anomaly_type": "hotspot_cellule", "delta_t_normalized": 4.5, "confidence": 0.50},
+          {"panel_id": "STRING_F_ROW_19_POS_1", "coa_class": "CoA1", "anomaly_type": "PID", "delta_t_normalized": 4.3, "confidence": 0.50},
+          {"panel_id": "STRING_G_ROW_11_POS_19", "coa_class": "CoA1", "anomaly_type": "salissure", "delta_t_normalized": 4.0, "confidence": 0.50}
+        ]
+      }
+    },
+    {
+      "num": 6,
+      "title": "Recommandations de maintenance",
+      "content": {
+        "immediate": [
+          {
+            "delai": "48h — avant le 2025-10-02",
+            "actions": [
+              "Remplacer STRING_A_ROW_3_POS_7 (hotspot CoA3, ΔT_norm 62.7°C) — risque incendie priorité maximale",
+              "Remplacer STRING_B_ROW_2_POS_3 (hotspot CoA3, ΔT_norm 58.8°C) — risque incendie",
+              "Diagnostiquer et remplacer diode bypass STRING_A_ROW_12_POS_14 (bypass_diode CoA3, ΔT_norm 57.1°C)",
+              "Diagnostic électrique string STRING_C pour localisation connexion ouverte (STRING_C_ROW_5_POS_11, ΔT_norm 54.0°C)",
+              "Remplacer STRING_D_ROW_8_POS_18 (hotspot CoA3, ΔT_norm 52.6°C)",
+              "Test PID STRING_E_ROW_6_POS_5 (PID CoA3, ΔT_norm 50.9°C) — traitement ou remplacement selon résultats"
+            ]
+          }
+        ],
+        "short_term": [
+          {
+            "delai": "90 jours — avant le 2025-12-29",
+            "actions": [
+              "Nettoyage panneaux STRING_B_ROW_9_POS_16, STRING_G_ROW_4_POS_9, STRING_D_ROW_2_POS_1, STRING_A_ROW_4_POS_20 (salissures CoA2)",
+              "Remplacement diodes bypass STRING_C_ROW_11_POS_8 et STRING_C_ROW_19_POS_17",
+              "Inspection visuelle et remplacement si confirmation des hotspots CoA2 : STRING_A_ROW_7_POS_2, STRING_D_ROW_14_POS_12, STRING_F_ROW_1_POS_4, STRING_B_ROW_17_POS_13, STRING_E_ROW_10_POS_15, STRING_G_ROW_13_POS_7, STRING_B_ROW_6_POS_2, STRING_D_ROW_16_POS_11",
+              "Élagage végétation — supprimer ombrages STRING_E_ROW_3_POS_19 et STRING_F_ROW_7_POS_10",
+              "Tests PID STRING_A_ROW_15_POS_6 et STRING_C_ROW_8_POS_5"
+            ]
+          }
+        ],
+        "monitoring": [
+          {
+            "delai": "Prochaine inspection planifiée",
+            "actions": [
+              "Surveiller évolution des 22 anomalies CoA1 (surveillance priorité basse)",
+              "Reclassifier CoA1 proches du seuil CoA2 lors de la prochaine inspection",
+              "Programmer ré-inspection de validation post-maintenance (CoA3 et CoA2 traités)",
+              "Mettre en place baseline pour comparaison tendance (cette inspection = référence T0)",
+              "Vérifier efficacité traitement anti-PID sur STRING_E_ROW_6_POS_5 et STRING_A_ROW_15_POS_6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "num": 7,
+      "title": "Annexes techniques",
+      "content": {
+        "flight_params": {
+          "drone": "DJI Mavic 3T",
+          "date_vol": "2025-09-30",
+          "heure_debut": "09:52:33",
+          "heure_fin": "approximativement 10:15:00",
+          "nombre_images_thermiques": 236,
+          "nombre_images_rgb": 236,
+          "altitude_vol_m": 30,
+          "recouvrement_lateral_pct": 70,
+          "recouvrement_longitudinal_pct": 80,
+          "vitesse_vol_ms": 5,
+          "gsd_thermique_cm_px": 5,
+          "gsd_rgb_cm_px": 1.5
+        },
+        "conditions_iec": {
+          "norme": "IEC 62446-3",
+          "irradiance_mesuree_wm2": 820,
+          "seuil_irradiance_minimum_wm2": 600,
+          "irradiance_reference_wm2": 1000,
+          "facteur_normalisation": 1.2195,
+          "temperature_ambiante_c": 31,
+          "vitesse_vent_ms": 1.8,
+          "seuil_vent_maximum_ms": 5,
+          "conditions_conformes": true,
+          "classification_coa": {
+            "CoA1": "ΔT_norm < 10°C — Surveillance",
+            "CoA2": "10°C <= ΔT_norm <= 40°C — Planifié",
+            "CoA3": "ΔT_norm > 40°C — Urgent"
+          },
+          "formule_normalisation": "ΔT_norm = ΔT_mesuré × (1000 / irradiance_mesurée)"
+        }
+      }
+    }
+  ]
+}

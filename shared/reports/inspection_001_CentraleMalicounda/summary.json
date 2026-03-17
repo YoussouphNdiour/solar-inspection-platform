@@ -1,0 +1,33 @@
+{
+  "inspection_id": "inspection_001_CentraleMalicounda",
+  "pipeline_complete": true,
+  "completed_at": "2025-09-30T11:05:00Z",
+  "deliverables": {
+    "anomaly_geojson": "shared/anomalies/inspection_001_CentraleMalicounda/anomalies.geojson",
+    "dashboard": "shared/reports/inspection_001_CentraleMalicounda/dashboard.json",
+    "rapport_structure": "shared/reports/inspection_001_CentraleMalicounda/rapport_structure.json",
+    "work_orders": "shared/reports/inspection_001_CentraleMalicounda/work_orders.json"
+  },
+  "kpis_resume": {
+    "panels_analyzed": 3620,
+    "total_anomalies": 47,
+    "coa3_critique": 6,
+    "coa2_planifie": 19,
+    "coa1_surveillance": 22,
+    "power_loss_kwh_year": 57600,
+    "financial_impact_fcfa_year": 5760000,
+    "total_wo": 9,
+    "urgent_wo": 4,
+    "scheduled_wo": 5,
+    "total_repair_cost_fcfa": 1270000,
+    "power_recovery_after_repairs_kwh_year": 45360,
+    "roi_global_months": 3.4
+  },
+  "next_actions": [
+    "Exécuter WOs urgents WO-2025-001 à WO-2025-004 avant le 2025-10-02 (STRING_A, B, C, D/E — CoA3)",
+    "Planifier interventions CoA2 WO-2025-005 à WO-2025-009 avant décembre 2025",
+    "Programmer ré-inspection de validation post-maintenance (T+30 jours après interventions urgentes)",
+    "Utiliser cette inspection comme baseline T0 pour comparaison tendance future",
+    "Mettre en place protocole nettoyage trimestriel panneaux (réduction CoA1/CoA2 salissures)"
+  ]
+}

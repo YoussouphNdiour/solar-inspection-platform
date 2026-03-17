@@ -1,0 +1,21 @@
+{
+  "inspection_id": "inspection_001_CentraleMalicounda",
+  "validation_date": "2025-09-30",
+  "conditions": {
+    "irradiance_wm2": 820,
+    "wind_speed_ms": 1.8,
+    "ambient_temp_c": 31
+  },
+  "iec_checks": {
+    "irradiance_ok": true,
+    "irradiance_detail": "820 W/m² > 600 W/m² minimum IEC 62446-3",
+    "wind_ok": true,
+    "wind_detail": "1.8 m/s < 5 m/s maximum IEC 62446-3",
+    "overall_compliant": true
+  },
+  "delta_t_normalization_factor": 1.2195,
+  "normalization_note": "ΔT_norm = ΔT_mesuré × (1000/820) = ΔT_mesuré × 1.2195",
+  "standard_reference": "IEC 62446-3:2017 — Photovoltaic (PV) systems — Requirements for testing, documentation and maintenance — Part 3: Photovoltaic modules and plants — Outdoor infrared thermography",
+  "validated_by": "image-processor",
+  "validated_at": "2025-09-30T10:15:00Z"
+}
