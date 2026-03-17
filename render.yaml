@@ -43,6 +43,7 @@ services:
     name: solar-redis
     plan: starter
     maxmemoryPolicy: allkeys-lru
+    ipAllowList: []  # Accès depuis les services Render internes uniquement
 
 # ── PostgreSQL + PostGIS ─────────────────────────────────────────────────────
 databases:
