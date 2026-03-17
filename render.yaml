@@ -9,7 +9,6 @@ services:
     region: frankfurt
     plan: starter
     healthCheckPath: /health
-    # Migrations lancées AVANT le démarrage (évite asyncio.run dans lifespan)
     preDeployCommand: "cd /app && alembic upgrade head"
     envVars:
       - key: DATABASE_URL
@@ -19,7 +18,7 @@ services:
       - key: REDIS_URL
         fromService:
           name: solar-redis
-          type: redis
+          type: keyvalue
           property: connectionString
       - key: FRONTEND_URL
         value: "https://solar-inspection-platform.onrender.com"
@@ -38,16 +37,16 @@ services:
       - key: VITE_API_URL
         value: "https://solar-inspection-platform.onrender.com/api/v1"
 
-  # ── Redis / Key-Value ────────────────────────────────────────────────────────
-  - type: redis
+  # ── Key Value (Redis-compatible) ─────────────────────────────────────────────
+  - type: keyvalue
     name: solar-redis
     plan: starter
     maxmemoryPolicy: allkeys-lru
-    ipAllowList: []  # Accès depuis les services Render internes uniquement
+    ipAllowList: []
 
-# ── PostgreSQL + PostGIS ─────────────────────────────────────────────────────
+# ── PostgreSQL ────────────────────────────────────────────────────────────────
 databases:
   - name: solar-db
     databaseName: solar_inspection
-    plan: starter
+    plan: free
     region: frankfurt
