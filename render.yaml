@@ -4,13 +4,10 @@
 services:
   # ── Backend FastAPI ──────────────────────────────────────────────────────────
   - type: web
-    name: solar-backend
-    runtime: python
-    region: frankfurt  # le plus proche de l'Afrique de l'Ouest
+    name: solar-inspection-platform
+    runtime: docker          # Utilise le Dockerfile à la racine du repo
+    region: frankfurt
     plan: starter
-    rootDir: src/backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
       - key: DATABASE_URL
@@ -23,14 +20,11 @@ services:
           type: redis
           property: connectionString
       - key: FRONTEND_URL
-        fromService:
-          name: solar-frontend
-          type: web
-          property: deployedURL
+        value: "https://solar-inspection-platform.onrender.com"
       - key: DEBUG
         value: "false"
-      - key: PYTHON_VERSION
-        value: "3.12.0"
+      - key: RUN_MIGRATIONS
+        value: "true"
 
   # ── Frontend React (site statique CDN) ──────────────────────────────────────
   - type: web
@@ -42,11 +36,7 @@ services:
     pullRequestPreviewsEnabled: true
     envVars:
       - key: VITE_API_URL
-        fromService:
-          name: solar-backend
-          type: web
-          property: deployedURL
-        suffix: /api/v1
+        value: "https://solar-inspection-platform.onrender.com/api/v1"
 
   # ── Redis / Key-Value ────────────────────────────────────────────────────────
   - type: redis
@@ -58,5 +48,5 @@ services:
 databases:
   - name: solar-db
     databaseName: solar_inspection
-    plan: starter       # PostgreSQL 16 — PostGIS disponible via CREATE EXTENSION
+    plan: starter
     region: frankfurt
