@@ -44,7 +44,7 @@ describe('useSiteStore', () => {
     const mockSite = {
       id: 'site-001',
       name: 'Test',
-      location: { type: 'Point' as const, coordinates: [-1.5, 43.5] },
+      location: { type: 'Point' as const, coordinates: [-1.5, 43.5] as [number, number] },
       surface_m2: 1000,
       panel_count: 50,
       created_at: '2024-01-01T00:00:00Z',
@@ -73,7 +73,7 @@ describe('useSiteStore', () => {
       {
         id: 'site-001',
         name: 'Centrale A',
-        location: { type: 'Point' as const, coordinates: [-1.5, 43.5] },
+        location: { type: 'Point' as const, coordinates: [-1.5, 43.5] as [number, number] },
         surface_m2: 5000,
         panel_count: 250,
         created_at: '2024-01-01T00:00:00Z',

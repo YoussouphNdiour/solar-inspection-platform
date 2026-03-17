@@ -9,12 +9,10 @@ import type { AnomalyGeoJSON, CoAClass } from '../types'
 
 export const InspectionDetail: React.FC = () => {
   const { inspectionId } = useParams<{ inspectionId: string }>()
-  const { inspections, fetchInspections } = useInspectionStore()
+  const { fetchInspections } = useInspectionStore()
   const { viewport, setViewport } = useMapStore()
   const [anomalies, setAnomalies] = useState<AnomalyGeoJSON | null>(null)
   const [coaFilter, setCoaFilter] = useState<CoAClass[]>(['CoA1', 'CoA2', 'CoA3'])
-
-  const inspection = inspections.find((i) => i.id === inspectionId)
 
   useEffect(() => {
     fetchInspections()

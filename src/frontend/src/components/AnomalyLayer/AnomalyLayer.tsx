@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react'
-import { Layer, Popup, Source } from 'react-map-gl/maplibre'
+import { useCallback, useEffect, useState } from 'react'
+import { Layer, Popup, Source, useMap } from 'react-map-gl/maplibre'
 import type { MapLayerMouseEvent } from 'maplibre-gl'
 import type { AnomalyGeoJSON, AnomalyProperties, CoAClass } from '../../types'
 import { AnomalyPopup } from './AnomalyPopup'
@@ -19,6 +19,7 @@ export const AnomalyLayer: React.FC<Props> = ({
   geojson,
   visibleClasses = ['CoA1', 'CoA2', 'CoA3'],
 }) => {
+  const { current: map } = useMap()
   const [selectedAnomaly, setSelectedAnomaly] = useState<{
     properties: AnomalyProperties
     longitude: number
@@ -43,6 +44,12 @@ export const AnomalyLayer: React.FC<Props> = ({
     })
   }, [])
 
+  useEffect(() => {
+    if (!map) return
+    map.on('click', 'anomalies-fill', handleClick)
+    return () => { map.off('click', 'anomalies-fill', handleClick) }
+  }, [map, handleClick])
+
   return (
     <>
       <Source id="anomalies" type="geojson" data={filteredGeojson as GeoJSON.FeatureCollection}>
@@ -60,7 +67,6 @@ export const AnomalyLayer: React.FC<Props> = ({
             ],
             'fill-opacity': 0.6,
           }}
-          onClick={handleClick}
         />
         <Layer
           id="anomalies-outline"
